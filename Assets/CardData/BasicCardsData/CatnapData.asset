@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ca4b6fa12e95946b9952ca11876aca, type: 3}
   m_Name: CatnapData
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
-  cardName: 
+  cardName: Catnap
+  cardText: 
   cardType: 00000000
   cardSprite: {fileID: 0}
   energyCost: 1
