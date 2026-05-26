@@ -302,6 +302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 5155839823000803345, guid: 97caa203cf3068e438475203a3c5435e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6272460121863712100, guid: 97caa203cf3068e438475203a3c5435e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.47654
@@ -342,6 +346,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7919595628988406395, guid: 97caa203cf3068e438475203a3c5435e, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: a9623cbdee193c6428f2e39321b70d75, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -9,14 +9,14 @@ namespace CardScripts
     public class Card : ScriptableObject
     {
         public string cardName;
+        public string cardText;
         public List<CardType> cardType;
         public Sprite cardSprite;
         public int energyCost;
-        //public int damageMin;
-        //public int damageMax;
-        //public int healthGain;
-        //public int armorGain;
-        //public DamageType damageType;
+        public int damageMin;
+        public int damageMax;
+        public int healthGain;
+        public int armorGain;
 
         public enum CardType
         {
