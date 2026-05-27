@@ -33,4 +33,9 @@ public class DeckManager : MonoBehaviour
         handManager.AddCardToHand(nextCard);
         currentIndex = (currentIndex + 1) % allCards.Count; //wraps around to beginning of deck when it reaches the end
     }
+
+    private void Awake()
+    {
+        Debug.Log($"I am a deck manager and I am awake!");
+    }
 }
