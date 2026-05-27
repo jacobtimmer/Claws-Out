@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CatnapData
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
   cardName: Catnap
-  cardText: 
+  cardText: Heal 3 health
   cardType: 00000000
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 3115681028719744903, guid: 1689b7f1d23f87f4fa5bbfa1f1e4f91b, type: 3}
   energyCost: 1
   damageMin: 0
   damageMax: 0
