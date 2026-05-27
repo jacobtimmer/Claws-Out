@@ -17,11 +17,26 @@ public class CardDisplay : MonoBehaviour
 
     void Start()
     {
-        UpdateCardDisplay(); //when this card initializes, it will update the display
+        if (cardData != null)
+        {
+            UpdateCardDisplay(); //when this card initializes, it will update the display
+        }
+    }
+
+    public void Setup(Card newCard) //added so the HandManager can assign card data when drawing cards
+    {
+        cardData = newCard; //set this card display's data to the card that was drawn
+        UpdateCardDisplay(); //update the display after assigning the new card data
     }
 
     public void UpdateCardDisplay()
     {
+        if (cardData == null) //added so we don't get errors if cardData was not assigned yet
+        {
+            Debug.LogWarning("No card data assigned to this CardDisplay.");
+            return;
+        }
+
         //.text grabs the text component of the TMP_Text
         nameText.text = cardData.cardName;
         energyCostText.text = cardData.energyCost.ToString();
@@ -46,5 +61,4 @@ public class CardDisplay : MonoBehaviour
             }
         }
     }
-
 }
