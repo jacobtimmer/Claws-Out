@@ -22,7 +22,7 @@ public class HandManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        UpdateHandVisuals();
+        //UpdateHandVisuals(); //can be used for testing
     }
 
     //public so we can call it elsewhere
