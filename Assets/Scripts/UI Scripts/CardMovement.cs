@@ -18,6 +18,9 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
 
     private Vector2 latestPointerPosition; //added to store pointer position from the new Input System event data
 
+    private TurnManager turnManager; //added so this card can tell the game when it has been played
+    private CardDisplay cardDisplay; //added so this card can access the Card ScriptableObject assigned to it
+
     [SerializeField] private float selectScale = 1.1f; //scale when card is selected/hovered
     [SerializeField] private Vector2 cardPlay; //if mouse goes past the point, card is played, set in the inspector
     [SerializeField] private Vector3 playPosition;
@@ -32,6 +35,9 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
         originalScale = rectTransform.localScale;
         originalRotation = rectTransform.localRotation;
         originalPosition = rectTransform.localPosition;
+
+        turnManager = FindAnyObjectByType<TurnManager>(); //added to find the turn manager in the scene
+        cardDisplay = GetComponent<CardDisplay>(); //added to get the Card ScriptableObject from this card display
     }
 
     void Update()
@@ -83,6 +89,11 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (turnManager != null && !turnManager.CanPlayCard()) //added so player can only play one card during their turn
+        {
+            return;
+        }
+
         if (currentState == 1)
         {
             currentState = 2; //dragging state
@@ -94,7 +105,22 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
 
     public void OnPointerUp(PointerEventData eventData) //added release detection using UI event data instead of Input.GetMouseButton
     {
-        if (currentState == 2 || currentState == 3) //added so releasing while dragging or playing resets the card
+        if (currentState == 3) //added so releasing while in play state actually plays the card
+        {
+            if (turnManager != null && cardDisplay != null && cardDisplay.cardData != null && turnManager.CanPlayCard())
+            {
+                turnManager.PlayCard(cardDisplay.cardData); //added to apply this card's effect using the Card ScriptableObject
+            }
+            else
+            {
+                Debug.LogWarning("Could not play card. Missing TurnManager, CardDisplay, or cardData.");
+            }
+
+            TransitionToState0(); //changed so the card returns to the hand instead of being destroyed
+            return;
+        }
+
+        if (currentState == 2) //added so releasing while dragging resets the card
         {
             TransitionToState0(); //added reset when pointer/mouse button is released
         }
