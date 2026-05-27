@@ -817,7 +817,7 @@ GameObject:
   - component: {fileID: 6272460121863712100}
   - component: {fileID: 7919595628988406395}
   - component: {fileID: 4347819116630975685}
-  - component: {fileID: 7375870702270736852}
+  - component: {fileID: 7833926547804815113}
   m_Layer: 0
   m_Name: CardPrefab
   m_TagString: Untagged
@@ -834,7 +834,7 @@ RectTransform:
   m_GameObject: {fileID: 5155839823000803345}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalScale: {x: 50, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7714754596472546200}
@@ -914,7 +914,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.5, y: 3.5}
   m_EdgeRadius: 0
---- !u!114 &7375870702270736852
+--- !u!114 &7833926547804815113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -923,10 +923,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5155839823000803345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0fcf962619b1b439c09d9725ef27ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 14bef2f0e721c6c458f2ce89c315528f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DragUIObject
-  movementSensitivity: 1
+  m_EditorClassIdentifier: Assembly-CSharp::CardMovement
+  selectScale: 1.1
+  cardPlay: {x: 0, y: 400}
+  playPosition: {x: 0, y: 600, z: 0}
 --- !u!1 &5341158586604263483
 GameObject:
   m_ObjectHideFlags: 0
