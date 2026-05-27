@@ -154,6 +154,59 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &944056010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 944056011}
+  - component: {fileID: 944056012}
+  m_Layer: 5
+  m_Name: DeckManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &944056011
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944056010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1183386159}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &944056012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944056010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f6f60abb03e0b4aa5eb40a5aaba8d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeckManager
+  allCards:
+  - {fileID: 11400000, guid: e5830a2fc2d40c2468489d16a74cdcd9, type: 2}
+  - {fileID: 11400000, guid: a9623cbdee193c6428f2e39321b70d75, type: 2}
+  - {fileID: 11400000, guid: cdb08231bcf9e524cb58f463bd18d643, type: 2}
+  - {fileID: 11400000, guid: 02ed224c4681a774890c8962da431a01, type: 2}
 --- !u!1 &991876054
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +396,7 @@ RectTransform:
   m_Children:
   - {fileID: 1974265667}
   - {fileID: 248873373}
+  - {fileID: 944056011}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -478,11 +532,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HandManager
   startingHandSize: 5
+  deckManager: {fileID: 944056012}
   cardPrefab: {fileID: 5155839823000803345, guid: 97caa203cf3068e438475203a3c5435e, type: 3}
   handTransform: {fileID: 248873373}
   fanSpread: -5
   cardSpacing: 200
-  verticalSpacing: 100
+  verticalSpacing: 50
   cardsInHand: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

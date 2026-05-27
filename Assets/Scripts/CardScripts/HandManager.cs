@@ -7,19 +7,16 @@ public class HandManager : MonoBehaviour
 {
     [SerializeField] int startingHandSize = 5;
 
+    public DeckManager deckManager; //Assign the DeckManager in the inspector
     public GameObject cardPrefab; //Assign card prefab in inspector
+
     public Transform handTransform; //Center of the hand position
     public float fanSpread = -7.5f; //Degrees to spread cards in a fan shape
-
     public float cardSpacing = 150f;
     public float verticalSpacing = 100f;
     public List<GameObject> cardsInHand = new List<GameObject>(); //List to keep track of card objects in hand
     void Start()
     {
-        for(int i = 0; i < startingHandSize; i++)
-        {
-            AddCardToHand();
-        }
 
     }
 
@@ -29,10 +26,13 @@ public class HandManager : MonoBehaviour
     }
 
     //public so we can call it elsewhere
-    public void AddCardToHand()
+    public void AddCardToHand(Card cardData)
     {
         GameObject newCard = Instantiate(cardPrefab, handTransform.position, Quaternion.identity, handTransform);
         cardsInHand.Add(newCard); //adds the card to our list
+
+        //set the card data of the instantiated card to the data from the deck
+        newCard.GetComponent<CardDisplay>().cardData = cardData;
 
         UpdateHandVisuals();
     }
