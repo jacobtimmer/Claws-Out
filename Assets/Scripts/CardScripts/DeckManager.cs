@@ -9,11 +9,11 @@ public class DeckManager : MonoBehaviour
 
     private void Start()
     {
-        /*//load all card assets from the resources folder into the deck
+        //load all card assets from the resources folder into the deck
         Card[] cards = Resources.LoadAll<Card>("Cards");
 
         //Add the loaded cards to the allCards list
-        allCards.AddRange(cards);*/
+        allCards.AddRange(cards);
     }
 
     public void DrawCard(HandManager handManager)
