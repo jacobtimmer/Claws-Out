@@ -19,5 +19,5 @@ MonoBehaviour:
   energyCost: 1
   damageMin: 0
   damageMax: 0
-  healthGain: 3
+  healthGain: 5
   armorGain: 0
