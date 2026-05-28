@@ -6,14 +6,11 @@ using CardScripts;
 
 public class TurnManager : MonoBehaviour
 {
-    [Header("Characters")]
     public CharacterStats player;
     public CharacterStats enemy;
 
-    [Header("Enemy Settings")]
     public int enemyDamage = 3;
 
-    [Header("Game Over UI")]
     public GameObject gameOverScreen; //panel that appears when either the player or enemy reaches 0 health
     public TMP_Text gameOverText; //text that says whether the player won or lost
 
@@ -43,7 +40,7 @@ public class TurnManager : MonoBehaviour
 
         if (card == null)
         {
-            Debug.LogWarning("Tried to play a card, but the Card ScriptableObject was missing.");
+            Debug.LogWarning("Tried to play card, but the Card ScriptableObject was missing.");
             return;
         }
 
@@ -53,7 +50,7 @@ public class TurnManager : MonoBehaviour
 
         if (enemy.IsDead())
         {
-            EndGame(true); //enemy died, so player wins
+            EndGame(true); // player wins
             return;
         }
 
@@ -66,20 +63,20 @@ public class TurnManager : MonoBehaviour
 
         if (damage > 0)
         {
-            enemy.TakeDamage(damage); //deal damage to the enemy
-            Debug.Log("Player used " + card.cardName + " and dealt " + damage + " damage.");
+            enemy.TakeDamage(damage);
+            //Debug.Log("Player used " + card.cardName + " and dealt " + damage + " damage.");
         }
 
         if (card.healthGain > 0)
         {
-            player.Heal(card.healthGain); //heal the player
-            Debug.Log("Player used " + card.cardName + " and healed " + card.healthGain + " health.");
+            player.Heal(card.healthGain);
+            //Debug.Log("Player used " + card.cardName + " and healed " + card.healthGain + " health.");
         }
 
         if (card.armorGain > 0)
         {
             player.GainArmor(card.armorGain); //give armor to the player
-            Debug.Log("Player used " + card.cardName + " and gained " + card.armorGain + " armor.");
+            //Debug.Log("Player used " + card.cardName + " and gained " + card.armorGain + " armor.");
         }
     }
 
@@ -92,7 +89,7 @@ public class TurnManager : MonoBehaviour
 
         if (card.damageMin == card.damageMax)
         {
-            return card.damageMin; //if min and max are the same, just use that number
+            return card.damageMin; //if min and max are the same, just use min
         }
 
         return Random.Range(card.damageMin, card.damageMax + 1); //otherwise pick random damage between min and max
