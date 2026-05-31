@@ -86,7 +86,6 @@ public class CharacterStats : MonoBehaviour
         {
             healthSlider.maxValue = maxHealth;
             healthSlider.value = currentHealth;
-
         }
     }
 }
