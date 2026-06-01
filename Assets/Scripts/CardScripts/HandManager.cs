@@ -5,16 +5,16 @@ using System.IO.IsolatedStorage;
 
 public class HandManager : MonoBehaviour
 {
-    [SerializeField] int startingHandSize = 5;
+    [SerializeField] private int startingHandSize = 5;
 
-    public DeckManager deckManager; //Assign the DeckManager in the inspector
-    public GameObject cardPrefab; //Assign card prefab in inspector
+    [SerializeField] private DeckManager deckManager; //Assign the DeckManager in the inspector
+    [SerializeField] private GameObject cardPrefab; //Assign card prefab in inspector
 
-    public Transform handTransform; //Center of the hand position
-    public float fanSpread = -7.5f; //Degrees to spread cards in a fan shape
-    public float cardSpacing = 150f;
-    public float verticalSpacing = 100f;
-    public List<GameObject> cardsInHand = new List<GameObject>(); //List to keep track of card objects in hand
+    [SerializeField] private Transform handTransform; //Center of the hand position
+    [SerializeField] private float fanSpread = -7.5f; //Degrees to spread cards in a fan shape
+    [SerializeField] private float cardSpacing = 150f;
+    [SerializeField] private float verticalSpacing = 100f;
+    [SerializeField] private List<GameObject> cardsInHand = new List<GameObject>(); //List to keep track of card objects in hand
     void Start()
     {
 
@@ -28,15 +28,16 @@ public class HandManager : MonoBehaviour
     //public so we can call it elsewhere
     public void AddCardToHand(Card cardData)
     {
+        //instantiate a new card from data paremeter, then add it to the list of cards in hand
         GameObject newCard = Instantiate(cardPrefab, handTransform.position, Quaternion.identity, handTransform);
         cardsInHand.Add(newCard); //adds the card to our list
 
-        //set the card data of the instantiated card to the data from the deck
+        //set the card data of the instantiated card to the data from the deck, then updates hand
         newCard.GetComponent<CardDisplay>().cardData = cardData;
-
         UpdateHandVisuals();
     }
 
+    //displays cards from the hand list
     private void UpdateHandVisuals()
     {
         int cardCount = cardsInHand.Count; //length of the list
