@@ -32,16 +32,7 @@ public class HandManager : MonoBehaviour
         cardsInHand.Add(newCard); //adds the card to our list
 
         //set the card data of the instantiated card to the data from the deck
-        CardDisplay cardDisplay = newCard.GetComponent<CardDisplay>(); //added so we can update the card display after assigning card data
-
-        if (cardDisplay != null)
-        {
-            cardDisplay.Setup(cardData); //changed from directly setting cardData so the UI updates right away
-        }
-        else
-        {
-            Debug.LogWarning("Card prefab does not have a CardDisplay script."); //added warning if the prefab is missing CardDisplay
-        }
+        newCard.GetComponent<CardDisplay>().cardData = cardData;
 
         UpdateHandVisuals();
     }
@@ -50,7 +41,7 @@ public class HandManager : MonoBehaviour
     {
         int cardCount = cardsInHand.Count; //length of the list
 
-        if (cardCount == 1)
+        if(cardCount == 1)
         {
             cardsInHand[0].transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
             cardsInHand[0].transform.localPosition = new Vector3(0f, 0f, 0f);
