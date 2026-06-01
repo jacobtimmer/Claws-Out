@@ -7,28 +7,30 @@ using CardScripts;
 
 public class CardDisplay : MonoBehaviour
 {
-    public Card cardData; //Where we will assign card data
+    public Card cardData; //Where we get our card data from
 
-    public Image cardImage;
-    public TMP_Text nameText;
-    public TMP_Text energyCostText;
-    public TMP_Text cardText;
-    public Image[] typeImages; //Array of images for the 5 card types
+    //variables, these are connected to UI elements in the inspector
+    [SerializeField] private Image cardImage;
+    [SerializeField] private TMP_Text nameText;
+    [SerializeField] private TMP_Text energyCostText;
+    [SerializeField] private TMP_Text cardText;
+    [SerializeField] private Image[] typeImages; //Array of images for the 5 card types (fish, claw, etc)
 
     void Start()
     {
-        UpdateCardDisplay(); //when this card initializes, it will update the display
+        UpdateCardDisplay(); //when this card initializes (called at start), it will update the display
     }
 
     public void UpdateCardDisplay()
     {
         //.text grabs the text component of the TMP_Text
+        //here we take our card data and set our variables, which connect to UI elements
         nameText.text = cardData.cardName;
         energyCostText.text = cardData.energyCost.ToString();
         cardImage.sprite = cardData.cardSprite;
         cardText.text = cardData.cardText;
 
-        //update type images
+        //updating type images
         //turn all type images off first
         for (int i = 0; i < typeImages.Length; i++)
         {
