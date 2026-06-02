@@ -11,7 +11,7 @@ public class HandManager : MonoBehaviour
     [SerializeField] private float fanSpread = -7.5f; //Degrees to spread cards in a fan shape
     [SerializeField] private float cardSpacing = 150f;
     [SerializeField] private float verticalSpacing = 100f;
-    public int maxHandSize = 10;
+    public int maxHandSize;
     public List<GameObject> cardsInHand = new List<GameObject>(); //List to keep track of card objects in hand
     void Start()
     {
@@ -21,6 +21,11 @@ public class HandManager : MonoBehaviour
     private void FixedUpdate()
     {
         //UpdateHandVisuals(); //can be used for testing
+    }
+
+    public void BattleSetup(int setMaxHandSize)
+    {
+        maxHandSize = setMaxHandSize;
     }
 
     //public so we can call it elsewhere
