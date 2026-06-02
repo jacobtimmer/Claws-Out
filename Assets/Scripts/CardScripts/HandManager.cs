@@ -5,7 +5,7 @@ using System.IO.IsolatedStorage;
 
 public class HandManager : MonoBehaviour
 {
-    [SerializeField] private DeckManager deckManager; //Assign the DeckManager in the inspector
+    //[SerializeField] private DeckManager deckManager; //Assign the DeckManager in the inspector
     [SerializeField] private GameObject cardPrefab; //Assign card prefab in inspector
     [SerializeField] private Transform handTransform; //Center of the hand position
     [SerializeField] private float fanSpread = -7.5f; //Degrees to spread cards in a fan shape
@@ -42,7 +42,7 @@ public class HandManager : MonoBehaviour
     }
 
     //displays cards from the hand list
-    private void UpdateHandVisuals()
+    public void UpdateHandVisuals()
     {
         int cardCount = cardsInHand.Count; //length of the list
 

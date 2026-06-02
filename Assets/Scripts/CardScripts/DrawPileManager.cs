@@ -11,7 +11,7 @@ public class DrawPileManager : MonoBehaviour
     public List<Card> drawPile = new List<Card>();
 
 
-    [SerializeField] private int startingHandSize = 5;
+    //[SerializeField] private int startingHandSize = 5;
     private int currentIndex = 0;
     [SerializeField] private int maxHandSize = 10;
     public int currentHandSize;
