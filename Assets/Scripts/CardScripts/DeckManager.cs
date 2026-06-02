@@ -4,19 +4,22 @@ using CardScripts;
 
 public class DeckManager : MonoBehaviour
 {
+    [SerializeField] private int startingHandSize = 5;
+
+    //list of all cards in the deck, this will be populated from the resources folder
     public List<Card> allCards = new List<Card>();
     private int currentIndex = 0;
 
     private void Start()
     {
-        //load all card assets from the resources folder into the deck
+        //load all card assets from the resources folder into the deck, all possible cards
         Card[] cards = Resources.LoadAll<Card>("Cards");
 
         //Add the loaded cards to the allCards list
         allCards.AddRange(cards);
 
         HandManager handManager = FindAnyObjectByType<HandManager>();
-        for(int i = 0; i < 6; i++)
+        for(int i = 0; i < startingHandSize; i++)
         {
             DrawCard(handManager);
         }

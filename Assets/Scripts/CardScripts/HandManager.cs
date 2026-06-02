@@ -5,8 +5,6 @@ using System.IO.IsolatedStorage;
 
 public class HandManager : MonoBehaviour
 {
-    [SerializeField] private int startingHandSize = 5;
-
     [SerializeField] private DeckManager deckManager; //Assign the DeckManager in the inspector
     [SerializeField] private GameObject cardPrefab; //Assign card prefab in inspector
 
