@@ -139,6 +139,10 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
         rectTransform.localPosition = playPosition; //keep card at play position while in play state
         rectTransform.localRotation = Quaternion.identity; //reset rotation while playing
 
+        //not sure if this is the right spot for this code, need to look at placement code in tutorial video for hand removal
+        //DiscardManager discardManager = FindAnyObjectByType<DiscardManager>();
+        //discardManager.AddToDiscard(GetComponent<CardDisplay>().cardData);
+
         if (latestPointerPosition.y < cardPlay.y) //changed from Input.mousePosition.y to stored pointer position from event data
         {
             currentState = 2; //if mouse goes back down, go back to dragging state
