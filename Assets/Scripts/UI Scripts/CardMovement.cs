@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 //inheriting from Idraghandler ect
 //4 states, default, hover, dragging, and play
@@ -94,9 +95,13 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
 
     public void OnPointerUp(PointerEventData eventData) //added release detection using UI event data instead of Input.GetMouseButton
     {
-        if (currentState == 2 || currentState == 3) //added so releasing while dragging or playing resets the card
+        if (currentState == 2) //added so releasing while dragging resets the card
         {
             TransitionToState0(); //added reset when pointer/mouse button is released
+        }
+        if(currentState == 3)
+        {
+            HandlePlayState();
         }
     }
 
@@ -135,17 +140,29 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
 
     private void HandlePlayState()
     {
-        //can add glow effect and play arrow here if wanted
-        rectTransform.localPosition = playPosition; //keep card at play position while in play state
-        rectTransform.localRotation = Quaternion.identity; //reset rotation while playing
 
-        //not sure if this is the right spot for this code, need to look at placement code in tutorial video for hand removal
-        //DiscardManager discardManager = FindAnyObjectByType<DiscardManager>();
-        //discardManager.AddToDiscard(GetComponent<CardDisplay>().cardData);
+        //Debug.Log("HandlePlayState running. Mouse pressed: " + Mouse.current.leftButton.isPressed);
 
-        if (latestPointerPosition.y < cardPlay.y) //changed from Input.mousePosition.y to stored pointer position from event data
+        if (!Mouse.current.leftButton.isPressed)
+        {
+            rectTransform.localPosition = playPosition; //keep card at play position while in play state
+            rectTransform.localRotation = Quaternion.identity; //reset rotation while playing
+
+            HandManager handManager = FindAnyObjectByType<HandManager>();
+            handManager.cardsInHand.Remove(gameObject);
+            handManager.UpdateHandVisuals();
+            Debug.Log("Card played: " + GetComponent<CardDisplay>().cardData.cardName);
+            Destroy(gameObject); //destroy card after playing, can change to move to play area if wanted
+            DiscardManager discardManager = FindAnyObjectByType<DiscardManager>();
+            discardManager.AddToDiscard(GetComponent<CardDisplay>().cardData);
+            Debug.Log("Card added to discard: " + GetComponent<CardDisplay>().cardData.cardName);
+
+            //TransitionToState0();
+        }
+
+        /*if (latestPointerPosition.y < cardPlay.y) //changed from Input.mousePosition.y to stored pointer position from event data
         {
             currentState = 2; //if mouse goes back down, go back to dragging state
-        }
+        }*/
     }
 }
