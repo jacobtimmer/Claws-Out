@@ -4,14 +4,16 @@ using CardScripts;
 
 public class DeckManager : MonoBehaviour
 {
-    [SerializeField] private int startingHandSize = 5;
-    [SerializeField] private int maxHandSize = 12;
-    public int currentHandSize;
-
     //list of all cards in the deck, this will be populated from the resources folder
     public List<Card> allCards = new List<Card>();
-    private int currentIndex = 0;
+
+    [SerializeField] private int startingHandSize = 5;
+    //set hand size inside this script
+    [SerializeField] private int maxHandSize = 10;
+    public int currentHandSize;
     private HandManager handManager;
+    private DrawPileManager drawPileManager;
+    private bool startBattleRun = true;
 
     private void Start()
     {
@@ -20,42 +22,33 @@ public class DeckManager : MonoBehaviour
 
         //Add the loaded cards to the allCards list
         allCards.AddRange(cards);
+    }
 
-        handManager = FindAnyObjectByType<HandManager>();
-        maxHandSize = handManager.maxHandSize;
-        for(int i = 0; i < startingHandSize; i++)
+    private void Awake()
+    {
+        if(drawPileManager == null)
         {
-            DrawCard(handManager);
+            drawPileManager = FindAnyObjectByType<DrawPileManager>();
+        }
+        if (handManager == null)
+        {
+            handManager = FindAnyObjectByType<HandManager>();
         }
     }
 
     private void Update()
     {
-        if(handManager != null)
+        if (startBattleRun)
         {
-            currentHandSize = handManager.cardsInHand.Count;
+            BattleSetup();
         }
     }
 
-    public void DrawCard(HandManager handManager)
+    public void BattleSetup()
     {
-        if(allCards.Count == 0)
-        {
-            return;
-        }
-
-        if (currentHandSize < maxHandSize)
-        {
-            Card nextCard = allCards[currentIndex];
-            handManager.AddCardToHand(nextCard);
-            currentIndex = (currentIndex + 1) % allCards.Count; //wraps around to beginning of deck when it reaches the end
-        }
-    }
-
-
-
-    private void Awake()
-    {
-        Debug.Log($"I am a deck manager and I am awake!");
+        handManager.BattleSetup(maxHandSize);
+        drawPileManager.MakeDrawPile(allCards);
+        drawPileManager.BattleSetup(startingHandSize, maxHandSize);
+        startBattleRun = false;
     }
 }

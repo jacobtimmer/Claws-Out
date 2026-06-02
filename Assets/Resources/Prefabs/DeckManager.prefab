@@ -49,3 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckManager
   allCards: []
+  startingHandSize: 5
+  maxHandSize: 10
+  currentHandSize: 0
