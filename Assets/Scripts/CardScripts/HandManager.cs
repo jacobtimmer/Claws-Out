@@ -7,12 +7,12 @@ public class HandManager : MonoBehaviour
 {
     [SerializeField] private DeckManager deckManager; //Assign the DeckManager in the inspector
     [SerializeField] private GameObject cardPrefab; //Assign card prefab in inspector
-
     [SerializeField] private Transform handTransform; //Center of the hand position
     [SerializeField] private float fanSpread = -7.5f; //Degrees to spread cards in a fan shape
     [SerializeField] private float cardSpacing = 150f;
     [SerializeField] private float verticalSpacing = 100f;
-    [SerializeField] private List<GameObject> cardsInHand = new List<GameObject>(); //List to keep track of card objects in hand
+    public int maxHandSize = 10;
+    public List<GameObject> cardsInHand = new List<GameObject>(); //List to keep track of card objects in hand
     void Start()
     {
 
@@ -32,6 +32,7 @@ public class HandManager : MonoBehaviour
 
         //set the card data of the instantiated card to the data from the deck, then updates hand
         newCard.GetComponent<CardDisplay>().cardData = cardData;
+
         UpdateHandVisuals();
     }
 
