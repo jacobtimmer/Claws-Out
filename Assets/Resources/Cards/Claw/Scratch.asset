@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1ca4b6fa12e95946b9952ca11876aca, type: 3}
-  m_Name: StrikeData
+  m_Name: Scratch
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
-  cardName: Strike
-  cardText: Deal 4 damage
-  cardType: 00000000
-  cardSprite: {fileID: 7894308883384308476, guid: 69c955c1c7061b54fa64e2ce3f64a453, type: 3}
-  energyCost: 1
-  damageMin: 4
-  damageMax: 4
+  cardName: Scratch
+  cardText: Deal 1 damage
+  cardType: 01000000
+  cardSprite: {fileID: 0}
+  energyCost: 0
+  damageMin: 1
+  damageMax: 1
   healthGain: 0
   armorGain: 0
   timesActivated: 1

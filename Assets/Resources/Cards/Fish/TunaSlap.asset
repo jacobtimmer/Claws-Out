@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1ca4b6fa12e95946b9952ca11876aca, type: 3}
-  m_Name: LungeData
+  m_Name: TunaSlap
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
-  cardName: Lunge
-  cardText: Deal between 1 to 12 damage
-  cardType: 01000000
-  cardSprite: {fileID: -8679508993985951992, guid: b5af8fc98590cd0459fcc08b338526cb, type: 3}
+  cardName: Tuna Slap
+  cardText: Deal 8 Damage
+  cardType: 02000000
+  cardSprite: {fileID: 0}
   energyCost: 2
-  damageMin: 1
-  damageMax: 12
+  damageMin: 8
+  damageMax: 8
   healthGain: 0
   armorGain: 0
+  timesActivated: 1
