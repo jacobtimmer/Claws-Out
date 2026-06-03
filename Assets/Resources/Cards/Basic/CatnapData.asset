@@ -21,3 +21,4 @@ MonoBehaviour:
   damageMax: 0
   healthGain: 3
   armorGain: 0
+  timesActivated: 1

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1ca4b6fa12e95946b9952ca11876aca, type: 3}
-  m_Name: StrikeData
+  m_Name: EatFish
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
-  cardName: Strike
-  cardText: Deal 4 damage
-  cardType: 00000000
-  cardSprite: {fileID: 7894308883384308476, guid: 69c955c1c7061b54fa64e2ce3f64a453, type: 3}
-  energyCost: 1
-  damageMin: 4
-  damageMax: 4
-  healthGain: 0
+  cardName: Eat Fish
+  cardText: Heal 3 Health
+  cardType: 02000000
+  cardSprite: {fileID: -5776112038119290948, guid: c700a7d6d24301b49bcc54e9944402e9, type: 3}
+  energyCost: 0
+  damageMin: 0
+  damageMax: 0
+  healthGain: 3
   armorGain: 0
   timesActivated: 1

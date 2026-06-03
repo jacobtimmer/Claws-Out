@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1ca4b6fa12e95946b9952ca11876aca, type: 3}
-  m_Name: FishSlap
+  m_Name: TunaSlap
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
-  cardName: Fish Slap
-  cardText: Deal 3 damage
+  cardName: Tuna Slap
+  cardText: Deal 8 Damage
   cardType: 02000000
-  cardSprite: {fileID: 6312647582068239251, guid: f84230e97e4a68a43b1fcf46482da9b2, type: 3}
-  energyCost: 1
-  damageMin: 3
-  damageMax: 3
+  cardSprite: {fileID: 8125205921148050336, guid: 87816540901d93841953cf99bb03baa7, type: 3}
+  energyCost: 2
+  damageMin: 8
+  damageMax: 8
   healthGain: 0
   armorGain: 0
+  timesActivated: 1

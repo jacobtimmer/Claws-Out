@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class OptionsManager : MonoBehaviour
+public class CardEffectResolver : MonoBehaviour
 {
-    //can have something in here for changing the font used in the game  v11
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

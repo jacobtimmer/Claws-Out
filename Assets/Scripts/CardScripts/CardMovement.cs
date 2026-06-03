@@ -9,6 +9,9 @@ using UnityEngine.InputSystem;
 public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler //added IPointerUpHandler so we can detect release without using old Input system
 {
     private RectTransform rectTransform; //basic rect and canvas for our object
+    //private HandManager handManager;
+    //private DiscardManager discardManager;
+    private BattleManager battleManager;
     private Canvas canvas;
     private Vector2 originalLocalPointerPosition; //mouse pointer
     private Vector3 originalPanelLocalPosition; //original position of the card
@@ -29,6 +32,10 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
+
+        //handManager = FindAnyObjectByType<HandManager>();
+        //discardManager = FindAnyObjectByType<DiscardManager>();
+        battleManager = FindAnyObjectByType<BattleManager>();
 
         originalScale = rectTransform.localScale;
         originalRotation = rectTransform.localRotation;
@@ -148,21 +155,31 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
             rectTransform.localPosition = playPosition; //keep card at play position while in play state
             rectTransform.localRotation = Quaternion.identity; //reset rotation while playing
 
-            HandManager handManager = FindAnyObjectByType<HandManager>();
-            handManager.cardsInHand.Remove(gameObject);
-            handManager.UpdateHandVisuals();
-            Debug.Log("Card played: " + GetComponent<CardDisplay>().cardData.cardName);
-            Destroy(gameObject); //destroy card after playing, can change to move to play area if wanted
-            DiscardManager discardManager = FindAnyObjectByType<DiscardManager>();
-            discardManager.AddToDiscard(GetComponent<CardDisplay>().cardData);
-            Debug.Log("Card added to discard: " + GetComponent<CardDisplay>().cardData.cardName);
+            CardDisplay cardDisplay = GetComponent<CardDisplay>();
+
+            if(battleManager != null && cardDisplay != null)
+            {
+                bool cardWasPlayed = battleManager.TryPlayCard(cardDisplay.cardData, gameObject);
+
+                if (!cardWasPlayed)
+                {
+                    TransitionToState0();
+                }
+            }
+            else
+            {
+                TransitionToState0();
+            }
+
+            //handManager.cardsInHand.Remove(gameObject);
+            //handManager.UpdateHandVisuals();
+            //Debug.Log("Card played: " + GetComponent<CardDisplay>().cardData.cardName);
+            //Destroy(gameObject); //destroy card after playing, can change to move to play area if wanted
+            //discardManager.AddToDiscard(GetComponent<CardDisplay>().cardData);
+            //Debug.Log("Card added to discard: " + GetComponent<CardDisplay>().cardData.cardName);
 
             //TransitionToState0();
         }
 
-        /*if (latestPointerPosition.y < cardPlay.y) //changed from Input.mousePosition.y to stored pointer position from event data
-        {
-            currentState = 2; //if mouse goes back down, go back to dragging state
-        }*/
     }
 }
