@@ -17,6 +17,7 @@ namespace CardScripts
         public int damageMax;
         public int healthGain;
         public int armorGain;
+        public int timesActivated = 1;
 
         public enum CardType
         {
