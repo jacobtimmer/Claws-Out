@@ -10,6 +10,8 @@ public class FighterStats : MonoBehaviour
     private int currentHealth;
     private int armor;
 
+    public bool IsDead => currentHealth <= 0;
+
     private void Awake()
     {
         currentHealth = maxHealth;
