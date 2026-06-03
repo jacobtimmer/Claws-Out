@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AllIn
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
   cardName: All In!
-  cardText: 50% chance to deal 32 damage, 50% to deal 0
+  cardText: Deal between 0 and 32 damage
   cardType: 03000000
   cardSprite: {fileID: 7960707291354846422, guid: 83be05aa6c2345a409d3434b5af0ac1e, type: 3}
   energyCost: 3
