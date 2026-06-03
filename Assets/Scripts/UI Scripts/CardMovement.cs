@@ -157,12 +157,8 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
             discardManager.AddToDiscard(GetComponent<CardDisplay>().cardData);
             Debug.Log("Card added to discard: " + GetComponent<CardDisplay>().cardData.cardName);
 
-            //TransitionToState0();
+            TransitionToState0();
         }
 
-        /*if (latestPointerPosition.y < cardPlay.y) //changed from Input.mousePosition.y to stored pointer position from event data
-        {
-            currentState = 2; //if mouse goes back down, go back to dragging state
-        }*/
     }
 }
