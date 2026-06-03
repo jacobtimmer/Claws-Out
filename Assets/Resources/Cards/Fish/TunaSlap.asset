@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Tuna Slap
   cardText: Deal 8 Damage
   cardType: 02000000
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 8125205921148050336, guid: 87816540901d93841953cf99bb03baa7, type: 3}
   energyCost: 2
   damageMin: 8
   damageMax: 8
