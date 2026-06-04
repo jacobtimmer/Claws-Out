@@ -489,7 +489,7 @@ MonoBehaviour:
   playerStats: {fileID: 136155131}
   enemyStats: {fileID: 1122314865}
   energyText: {fileID: 1186959480}
-  enemyArmorGain: 12
+  enemyArmorGain: 10
   enemyBigAttackDamage: 18
   drawPileManager: {fileID: 1488551326}
   enemyAnimator: {fileID: 670190611}
