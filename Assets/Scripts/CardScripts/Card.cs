@@ -18,6 +18,10 @@ namespace CardScripts
         public int healthGain;
         public int armorGain;
         public int timesActivated = 1;
+        public bool isBrittleCard;
+        public bool isaLifestealCard;
+        public int cardsDrawn;
+        public int energyGained;
 
         public enum CardType
         {
