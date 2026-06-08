@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DoubleClaw
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
   cardName: DoubleClaw
-  cardText: Deal 2 damage 2 times. -Lifesteal (Gain health equal to damage dealt))
+  cardText: Deal 2 damage 2 times. [Lifesteal] (Gain health equal to damage dealt)
   cardType: 01000000
   cardSprite: {fileID: 0}
   energyCost: 2

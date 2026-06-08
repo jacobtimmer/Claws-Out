@@ -10,19 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1ca4b6fa12e95946b9952ca11876aca, type: 3}
-  m_Name: EatFish
+  m_Name: FishyThoughts
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
-  cardName: Eat Fish
-  cardText: Heal 4 Life
+  cardName: Fishy Thoughts
+  cardText: 'For the rest of the fight, whenever you play a fish card, draw a card.
+    [Brittle]'
   cardType: 02000000
-  cardSprite: {fileID: -5776112038119290948, guid: c700a7d6d24301b49bcc54e9944402e9, type: 3}
-  energyCost: 0
+  cardSprite: {fileID: 0}
+  energyCost: 2
   damageMin: 0
   damageMax: 0
-  healthGain: 4
+  healthGain: 0
   armorGain: 0
   timesActivated: 1
-  isBrittleCard: 0
+  isBrittleCard: 1
   isaLifestealCard: 0
   cardsDrawn: 0
   energyGained: 0
