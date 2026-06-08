@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: TunaSlap
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
   cardName: Tuna Slap
-  cardText: Deal 8 Damage
+  cardText: Deal 8 Damage. Heal 2 Life.
   cardType: 02000000
   cardSprite: {fileID: 8125205921148050336, guid: 87816540901d93841953cf99bb03baa7, type: 3}
   energyCost: 2
   damageMin: 8
   damageMax: 8
-  healthGain: 0
+  healthGain: 2
   armorGain: 0
   timesActivated: 1
+  isBrittleCard: 0
+  isaLifestealCard: 0
+  cardsDrawn: 0
+  energyGained: 0

@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1ca4b6fa12e95946b9952ca11876aca, type: 3}
-  m_Name: EatFish
+  m_Name: ThrowManyStarfish
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
-  cardName: Eat Fish
-  cardText: Heal 4 Life
+  cardName: Throw Many Starfish
+  cardText: Deal 1 damage and heal 1 life, 10 times.
   cardType: 02000000
-  cardSprite: {fileID: -5776112038119290948, guid: c700a7d6d24301b49bcc54e9944402e9, type: 3}
-  energyCost: 0
-  damageMin: 0
-  damageMax: 0
-  healthGain: 4
+  cardSprite: {fileID: 0}
+  energyCost: 3
+  damageMin: 1
+  damageMax: 1
+  healthGain: 1
   armorGain: 0
-  timesActivated: 1
+  timesActivated: 10
   isBrittleCard: 0
   isaLifestealCard: 0
   cardsDrawn: 0
