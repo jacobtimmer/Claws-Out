@@ -22,6 +22,7 @@ namespace CardScripts
         public bool isaLifestealCard;
         public int cardsDrawn;
         public int energyGained;
+        public int selfDamage;
 
         public enum CardType
         {

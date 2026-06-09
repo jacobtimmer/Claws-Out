@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1ca4b6fa12e95946b9952ca11876aca, type: 3}
-  m_Name: DoubleClaw
+  m_Name: SunkCostFallacy
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
-  cardName: DoubleClaw
-  cardText: 'Deal 2 damage 3 times. [Lifesteal]'
-  cardType: 01000000
+  cardName: Sunk Cost Fallacy
+  cardText: 'For the rest of the fight, whenver you play a risk card, gain 1 energy.
+    [Brittle]'
+  cardType: 03000000
   cardSprite: {fileID: 0}
-  energyCost: 2
-  damageMin: 4
-  damageMax: 4
+  energyCost: 3
+  damageMin: 0
+  damageMax: 0
   healthGain: 0
   armorGain: 0
-  timesActivated: 2
+  timesActivated: 1
   isBrittleCard: 0
-  isaLifestealCard: 1
+  isaLifestealCard: 0
   cardsDrawn: 0
   energyGained: 0
   selfDamage: 0

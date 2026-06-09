@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: ThinkReallyHard
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
   cardName: Think Really Hard
-  cardText: Draw 4 cards, gain 2 energy. -Brittle (This card is destroyed after use))
-  cardType: 
+  cardText: 'Draw 5 cards, take 2 damage. [Brittle]]'
+  cardType: 00000000
   cardSprite: {fileID: 0}
-  energyCost: 3
+  energyCost: 2
   damageMin: 0
   damageMax: 0
   healthGain: 0
@@ -24,5 +24,6 @@ MonoBehaviour:
   timesActivated: 1
   isBrittleCard: 1
   isaLifestealCard: 0
-  cardsDrawn: 4
-  energyGained: 2
+  cardsDrawn: 5
+  energyGained: 0
+  selfDamage: 2
