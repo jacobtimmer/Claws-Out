@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1ca4b6fa12e95946b9952ca11876aca, type: 3}
-  m_Name: DoubleClaw
+  m_Name: DollarBill
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
-  cardName: DoubleClaw
-  cardText: 'Deal 2 damage 3 times. [Lifesteal]'
-  cardType: 01000000
+  cardName: Dollar Bill
+  cardText: 50% chance to draw a card, heal 1 life, gain 1 armor, and deal 1 damage.
+  cardType: 03000000
   cardSprite: {fileID: 0}
-  energyCost: 2
-  damageMin: 4
-  damageMax: 4
+  energyCost: 0
+  damageMin: 0
+  damageMax: 1
   healthGain: 0
-  armorGain: 0
-  timesActivated: 2
+  armorGain: 1
+  timesActivated: 1
   isBrittleCard: 0
-  isaLifestealCard: 1
-  cardsDrawn: 0
+  isaLifestealCard: 0
+  cardsDrawn: 1
   energyGained: 0
   selfDamage: 0

@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1ca4b6fa12e95946b9952ca11876aca, type: 3}
-  m_Name: DoubleClaw
+  m_Name: Combo
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
-  cardName: DoubleClaw
-  cardText: 'Deal 2 damage 3 times. [Lifesteal]'
+  cardName: Combo
+  cardText: 'Deal 0 damage 6 times. [Lifesteal] '
   cardType: 01000000
   cardSprite: {fileID: 0}
-  energyCost: 2
-  damageMin: 4
-  damageMax: 4
+  energyCost: 1
+  damageMin: 0
+  damageMax: 0
   healthGain: 0
   armorGain: 0
-  timesActivated: 2
+  timesActivated: 6
   isBrittleCard: 0
   isaLifestealCard: 1
   cardsDrawn: 0
