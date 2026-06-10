@@ -8,7 +8,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private int maxPlayerEnergy = 3;
     [SerializeField] private int cardsDrawnPerTurn = 4;
 
-    [SerializeField] private FighterStats playerStats;
+    [SerializeField] private FighterStats playerStats; //so we can change stats of player and enemy
     [SerializeField] private FighterStats enemyStats;
 
     [SerializeField] private TextMeshProUGUI energyText;
@@ -118,7 +118,7 @@ public class BattleManager : MonoBehaviour
 
     private void UpdateEnergyUI()
     {
-        energyText.text = playerEnergy + " / " + maxPlayerEnergy;
+        energyText.text = "Energy: " + playerEnergy + " / " + maxPlayerEnergy;
     }
 
     private void DiscardHand()

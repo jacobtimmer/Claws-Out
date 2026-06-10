@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: FishSlap
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
   cardName: Fish Slap
-  cardText: Deal 3 damage
+  cardText: Deal 3 damage. Heal 1 Life.
   cardType: 02000000
   cardSprite: {fileID: 6312647582068239251, guid: f84230e97e4a68a43b1fcf46482da9b2, type: 3}
   energyCost: 1
   damageMin: 3
   damageMax: 3
-  healthGain: 0
+  healthGain: 1
   armorGain: 0
   timesActivated: 1
+  isBrittleCard: 0
+  isaLifestealCard: 0
+  cardsDrawn: 0
+  energyGained: 0

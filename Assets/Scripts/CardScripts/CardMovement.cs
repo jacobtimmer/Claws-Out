@@ -116,18 +116,23 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
     {
         latestPointerPosition = eventData.position; //added to keep the latest pointer position from the new Input System
 
-        if (currentState == 2)
+        if (currentState == 2 || currentState == 3)
         {
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), eventData.position, eventData.pressEventCamera, out Vector2 localPointerPosition))
             {
                 //localPointerPosition /= canvas.scaleFactor;
                 Vector3 offsetToOriginal = localPointerPosition - originalLocalPointerPosition; // all this  stuff is making sure the card is following the mouse and not jsut the mouse movement
-                rectTransform.localPosition = originalPanelLocalPosition + offsetToOriginal; //move card with mouse
+                Vector3 dragPosition = originalPanelLocalPosition + offsetToOriginal; //move card with mouse
 
-                if (rectTransform.localPosition.y > cardPlay.y)
+                if (dragPosition.y > cardPlay.y)
                 {
                     currentState = 3; //play state
                     rectTransform.localPosition = playPosition; //move card to play position
+                }
+                else
+                {
+                    currentState = 2; //dragging state
+                    rectTransform.localPosition = dragPosition;
                 }
             }
         }
@@ -178,8 +183,7 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
             //discardManager.AddToDiscard(GetComponent<CardDisplay>().cardData);
             //Debug.Log("Card added to discard: " + GetComponent<CardDisplay>().cardData.cardName);
 
-            //TransitionToState0();
+            TransitionToState0();
         }
-
     }
 }

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ca4b6fa12e95946b9952ca11876aca, type: 3}
+  m_Name: ArcaneInspiration
+  m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
+  cardName: Arcane Inspiration
+  cardText: Draw 5 cards, gain 5 life.
+  cardType: 04000000
+  cardSprite: {fileID: 0}
+  energyCost: 2
+  damageMin: 0
+  damageMax: 0
+  healthGain: 5
+  armorGain: 0
+  timesActivated: 1
+  isBrittleCard: 0
+  isaLifestealCard: 0
+  cardsDrawn: 5
+  energyGained: 0
+  selfDamage: 0

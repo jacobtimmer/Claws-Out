@@ -54,12 +54,12 @@ public class FighterStats : MonoBehaviour
     {
         if (healthText != null)
         {
-            healthText.text = currentHealth + " / " + maxHealth;
+            healthText.text = "Health: " + currentHealth + " / " + maxHealth;
         }
 
         if (armorText != null)
         {
-            armorText.text = armor.ToString();
+            armorText.text = "Armor: " + armor.ToString();
         }
     }
 }
