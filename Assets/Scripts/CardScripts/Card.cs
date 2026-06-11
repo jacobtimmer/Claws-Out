@@ -23,6 +23,7 @@ namespace CardScripts
         public int cardsDrawn;
         public int energyGained;
         public int selfDamage;
+        public AudioSource cardSoundEffect;
 
         public enum CardType
         {
