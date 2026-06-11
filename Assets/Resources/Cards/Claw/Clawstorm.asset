@@ -22,3 +22,10 @@ MonoBehaviour:
   healthGain: 0
   armorGain: 0
   timesActivated: 6
+  isBrittleCard: 0
+  isaLifestealCard: 0
+  cardsDrawn: 0
+  energyGained: 0
+  selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 8300000, guid: ac65005e2e2c7437fa1c59d90ef32827, type: 3}

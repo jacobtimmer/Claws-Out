@@ -27,3 +27,5 @@ MonoBehaviour:
   cardsDrawn: 0
   energyGained: 2
   selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 8300000, guid: 1427bd47c1102453c8472f83d0622a3f, type: 3}

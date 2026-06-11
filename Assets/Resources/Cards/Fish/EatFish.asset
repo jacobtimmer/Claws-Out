@@ -26,3 +26,6 @@ MonoBehaviour:
   isaLifestealCard: 0
   cardsDrawn: 0
   energyGained: 0
+  selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 8300000, guid: 41d7841ed15564941a9791285e97229e, type: 3}
