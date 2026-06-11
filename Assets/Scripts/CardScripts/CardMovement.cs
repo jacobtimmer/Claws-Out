@@ -54,7 +54,7 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
                 break; //removed old Input.GetMouseButton check because release is now handled in OnPointerUp
             case 3: //play state
                 HandlePlayState();
-                break; //removed old Input.GetMouseButton check because release is now handled in OnPointerUp
+                break;
 
         }
     }
