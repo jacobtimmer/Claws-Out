@@ -22,6 +22,9 @@ namespace CardScripts
         public bool isaLifestealCard;
         public int cardsDrawn;
         public int energyGained;
+        public int selfDamage;
+        public AudioSource cardSoundEffectPlayer;
+        public AudioClip cardSoundEffect;
 
         public enum CardType
         {

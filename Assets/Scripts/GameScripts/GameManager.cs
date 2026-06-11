@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using CardScripts;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,8 +9,14 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; } //saying that this is a public variable, and it can be acessed from other scripts, but can only be set by the gamemanager script
 
     //player variables
+    [SerializeField] private int startingPlayerHealth = 30;
     private int playerHealth;
+    [SerializeField] private int startingWealth = 10;
     private int playerWealth;
+
+    private List<Card> runDeck = new List<Card>();
+    private int currentFightNumber = 0;
+    private bool runActive = false;
 
     public AudioManager audioManager { get; private set; }
     public DeckManager deckManager { get; private set; }
@@ -97,6 +105,50 @@ public class GameManager : MonoBehaviour
     public int GetPlayerWealth()
     {
         return playerWealth;
+    }
+
+    public bool HasRunDeck()
+    {
+        return runDeck.Count > 0;
+    }
+
+    public List<Card> GetRunDeckCopy()
+    {
+        return new List<Card>(runDeck);
+    }
+
+    public void StartNewRun(List<Card> startingDeck)
+    {
+        runDeck.Clear();
+        runDeck.AddRange(startingDeck);
+
+        playerHealth = startingPlayerHealth;
+        playerWealth = 0;
+        currentFightNumber = 0;
+        runActive = true;
+    }
+
+    public void AddCardToRunDeck(Card card)
+    {
+        if (card != null)
+        {
+            runDeck.Add(card);
+        }
+    }
+
+    public void AdvanceFight()
+    {
+        currentFightNumber++;
+    }
+
+    public int GetCurrentFightIndex()
+    {
+        return currentFightNumber;
+    }
+
+    public bool IsRunActive()
+    {
+        return runActive;
     }
 
 
