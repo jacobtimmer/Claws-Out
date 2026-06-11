@@ -18,10 +18,24 @@ public class DeckManager : MonoBehaviour
     private void Start()
     {
         //load all card assets from the resources folder into the deck, all possible cards
-        Card[] cards = Resources.LoadAll<Card>("Cards");
+        //Card[] cards = Resources.LoadAll<Card>("Cards");
 
         //Add the loaded cards to the allCards list
-        allCards.AddRange(cards);
+        //allCards.AddRange(cards);
+
+        //allCards.Clear() runs whenever that DeckManager instance’s Start() runs. So:  If each fight scene has a fresh DeckManager, it runs once per fight. If DeckManager persists under GameManager, it runs only once when that persistent object is created.
+
+        allCards.Clear(); //clears the list
+
+        if (GameManager.Instance != null && GameManager.Instance.HasRunDeck())
+        {
+            allCards.AddRange(GameManager.Instance.GetRunDeckCopy());
+        }
+        else
+        {
+            Card[] cards = Resources.LoadAll<Card>("Cards");
+            allCards.AddRange(cards);
+        }
     }
 
     private void Awake()
