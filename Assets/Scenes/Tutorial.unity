@@ -509,7 +509,8 @@ MonoBehaviour:
       hand to build the best turn possible. Some possible cards to consider while
       playing ->  Brittle: If a card has brittle, it is destroyed for the rest of
       the fight when played. Lifesteal: If a card has lifesteal, any damage dealt
-      by it heals you for the same amount. '
+      by it heals you for the same amount. This color represents the type of the
+      card. Black = Basic, Blue = Fish, Tan = Claw, Purple = Magic, and Red = Risk '
   - title: Armor and Health
     description: Armor blocks incoming damage for the turn. Health is your long-term
       survival, so protect yourself when danger is coming.
