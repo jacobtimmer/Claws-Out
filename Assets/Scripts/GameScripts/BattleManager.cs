@@ -13,8 +13,20 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI energyText;
 
-    [SerializeField] private int enemyArmorGain = 12;
-    [SerializeField] private int enemyBigAttackDamage = 18;
+    private enum EnemyPattern
+    {
+        ArmorThenBigAttack,
+        AlternatingAttackArmor,
+        ScalingAttack,
+        RandomAttackOrArmor
+    }
+
+    [SerializeField] private EnemyPattern enemyPattern = EnemyPattern.ArmorThenBigAttack;
+
+    [SerializeField] private int enemyLightAttackDamage = 6;
+    [SerializeField] private int enemyArmorGain = 8;
+    [SerializeField] private int enemyBigAttackDamage = 15;
+    [SerializeField] private int enemyScalingDamagePerTurn = 2;
     private int enemyTurnCounter = 0;
 
     [SerializeField] private DrawPileManager drawPileManager;
@@ -36,6 +48,8 @@ public class BattleManager : MonoBehaviour
     private bool riskEnergyOnRiskPlayed;
     private bool drawOnSelfDamage;
     private bool halveSelfDamage;
+
+
 
     private void Awake()
     {
@@ -129,18 +143,60 @@ public class BattleManager : MonoBehaviour
     {
         enemyTurnCounter++;
 
-        if (enemyTurnCounter % 3 == 0)
+        switch (enemyPattern)
         {
-            enemyAnimator?.SetTrigger("Attack");
-            playerStats.TakeDamage(enemyBigAttackDamage);
-            CheckBattleEnd();
-            Debug.Log("Enemy used a big attack for " + enemyBigAttackDamage);
+            case EnemyPattern.ArmorThenBigAttack:
+                if (enemyTurnCounter % 3 == 0)
+                {
+                    EnemyAttack(enemyBigAttackDamage);
+                }
+                else
+                {
+                    EnemyGainArmor(enemyArmorGain);
+                }
+                break;
+
+            case EnemyPattern.AlternatingAttackArmor:
+                if (enemyTurnCounter % 2 == 1)
+                {
+                    EnemyAttack(enemyLightAttackDamage);
+                }
+                else
+                {
+                    EnemyGainArmor(enemyArmorGain);
+                }
+                break;
+
+            case EnemyPattern.ScalingAttack:
+                int scalingDamage = enemyLightAttackDamage + enemyScalingDamagePerTurn * (enemyTurnCounter - 1);
+                EnemyAttack(scalingDamage);
+                break;
+
+            case EnemyPattern.RandomAttackOrArmor:
+                if (Random.value < 0.5f)
+                {
+                    EnemyAttack(enemyLightAttackDamage);
+                }
+                else
+                {
+                    EnemyGainArmor(enemyArmorGain);
+                }
+                break;
         }
-        else
-        {
-            enemyStats.GainArmor(enemyArmorGain);
-            Debug.Log("Enemy gained " + enemyArmorGain + " armor.");
-        }
+    }
+
+    private void EnemyAttack(int damage)
+    {
+        enemyAnimator?.SetTrigger("Attack");
+        playerStats.TakeDamage(damage);
+        CheckBattleEnd();
+        Debug.Log("Enemy attacked for " + damage);
+    }
+
+    private void EnemyGainArmor(int armor)
+    {
+        enemyStats.GainArmor(armor);
+        Debug.Log("Enemy gained " + armor + " armor.");
     }
 
     private void UpdateEnergyUI()
@@ -203,24 +259,36 @@ public class BattleManager : MonoBehaviour
 
     private void ResolveCardEffect(Card card)
     {
+        if (HasType(card, Card.CardType.Fish))
+        {
+            if (fishHealOnFishPlayed) playerStats.Heal(1);
+            if (fishDrawOnFishPlayed) DrawCards(1);
+        }
+
+        if (HasType(card, Card.CardType.Claw) && clawEnergyOnClawPlayed)
+        {
+            GainEnergy(1);
+        }
+
+        if (HasType(card, Card.CardType.Risk) && riskEnergyOnRiskPlayed)
+        {
+            GainEnergy(1);
+        }
+
         for (int i = 0; i < card.timesActivated; i++)
         {
-            if (HasType(card, Card.CardType.Fish))
-            {
-                if (fishHealOnFishPlayed) playerStats.Heal(1);
-                if (fishDrawOnFishPlayed) DrawCards(1);
-            }
-
-            if (HasType(card, Card.CardType.Claw) && clawEnergyOnClawPlayed)
-            {
-                GainEnergy(1);
-            }
-
-            if (HasType(card, Card.CardType.Risk) && riskEnergyOnRiskPlayed)
-            {
-                GainEnergy(1);
-            }
             int damageDealt = 0;
+
+            if (TryResolveSpecialCard(card, ref damageDealt))
+            {
+                if (card.isaLifestealCard && damageDealt > 0)
+                {
+                    playerStats.Heal(damageDealt);
+                }
+
+                CheckBattleEnd();
+                continue;
+            }
 
             if (card.damageMax > 0)
             {
@@ -364,5 +432,58 @@ public class BattleManager : MonoBehaviour
         {
             DrawCards(1);
         }
+    }
+
+    private bool TryResolveSpecialCard(Card card, ref int damageDealt)
+    {
+        switch (card.cardName)
+        {
+            case "Blackjack":
+                if (Random.value < 0.5f)
+                {
+                    damageDealt += DealDamage(card, 21);
+                    Debug.Log("Blackjack hit!");
+                }
+                else
+                {
+                    Debug.Log("Blackjack missed.");
+                }
+                return true;
+
+            case "Coin Flip":
+                if (Random.value < 0.5f)
+                {
+                    playerStats.Heal(15);
+                    GainEnergy(2);
+                    Debug.Log("Coin Flip won!");
+                }
+                else
+                {
+                    Debug.Log("Coin Flip lost.");
+                }
+                return true;
+
+            case "Dollar Bill":
+                if (Random.value < 0.5f)
+                {
+                    damageDealt += DealDamage(card, 1);
+                    playerStats.Heal(1);
+                    playerStats.GainArmor(1);
+                    DrawCards(1);
+                    Debug.Log("Dollar Bill hit!");
+                }
+                else
+                {
+                    Debug.Log("Dollar Bill missed.");
+                }
+                return true;
+
+            case "At All Costs":
+                TakeSelfDamage(30);
+                damageDealt += DealDamage(card, 40);
+                return true;
+        }
+
+        return false;
     }
 }

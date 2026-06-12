@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
   cardName: Coin Flip
   cardText: 50% chance to gain 2 energy and heal 15 life.
-  cardType: 
+  cardType: 03000000
   cardSprite: {fileID: 0}
   energyCost: 2
   damageMin: 0
@@ -27,3 +27,5 @@ MonoBehaviour:
   cardsDrawn: 0
   energyGained: 2
   selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}
