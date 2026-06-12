@@ -48,5 +48,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ed99b9a1361e1914c9149bc4ee4844bf, type: 3}
   - {fileID: 8300000, guid: 5856cdc64dda5ed4b85ffa6630f07be2, type: 3}
   - {fileID: 8300000, guid: 952a9133e4386b8459e71e5a99140e69, type: 3}
+  - {fileID: 8300000, guid: 6ca3fa56c4dda2647a41361c2ecf7a9b, type: 3}
+  - {fileID: 8300000, guid: 952a9133e4386b8459e71e5a99140e69, type: 3}
+  - {fileID: 8300000, guid: ec0e6e6b97ff86640886de1907e24874, type: 3}
   musicVolume: 0.5
   shuffleSongs: 1

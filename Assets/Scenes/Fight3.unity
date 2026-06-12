@@ -2162,7 +2162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8baa7c56f6b0e9240ac5b32c683bf2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FighterStats
-  maxHealth: 1
+  maxHealth: 30
   healthText: {fileID: 1963699448}
   armorText: {fileID: 1610273115}
 --- !u!4 &1122314866
