@@ -6,7 +6,8 @@ public class RewardManager : MonoBehaviour
 {
     [SerializeField] private GameObject rewardPanel;
     [SerializeField] private RewardCardButton[] rewardButtons;
-    [SerializeField] private string nextFightSceneName = "Fight1";
+    [SerializeField] private FighterStats playerStats;
+    //[SerializeField] private string nextFightSceneName = "Fight1";
 
     private Card[] rewardPool;
 
@@ -30,9 +31,22 @@ public class RewardManager : MonoBehaviour
     public void ChooseReward(Card card)
     {
         GameManager.Instance.AddCardToRunDeck(card);
-        GameManager.Instance.AdvanceFight();
 
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(nextFightSceneName);
+        if (GameManager.Instance.HasNextFight())
+        {
+            string nextScene = GameManager.Instance.GetNextFightSceneName();
+            GameManager.Instance.AdvanceFight();
+
+            Time.timeScale = 1f;
+
+            GameManager.Instance.SetPlayerHealth(playerStats.GetCurrentHealth());
+
+            SceneManager.LoadScene(nextScene);
+        }
+        else
+        {
+            Debug.Log("Run complete!");
+            // Later: load victory scene or show final win panel
+        }
     }
 }
