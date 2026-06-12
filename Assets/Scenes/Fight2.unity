@@ -3964,6 +3964,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 136155131}
     - target: {fileID: 3934460455091923799, guid: 533a5a71c8985db48a52e50f687cd7b0, type: 3}
+      propertyPath: enemyPattern
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934460455091923799, guid: 533a5a71c8985db48a52e50f687cd7b0, type: 3}
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 670190611}
@@ -3972,6 +3976,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1226624326}
     - target: {fileID: 3934460455091923799, guid: 533a5a71c8985db48a52e50f687cd7b0, type: 3}
+      propertyPath: enemyArmorGain
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934460455091923799, guid: 533a5a71c8985db48a52e50f687cd7b0, type: 3}
       propertyPath: drawPileManager
       value: 
       objectReference: {fileID: 1488551326}
@@ -3979,6 +3987,10 @@ PrefabInstance:
       propertyPath: battleResultText
       value: 
       objectReference: {fileID: 1527008621}
+    - target: {fileID: 3934460455091923799, guid: 533a5a71c8985db48a52e50f687cd7b0, type: 3}
+      propertyPath: enemyLightAttackDamage
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3979067592330117992, guid: 533a5a71c8985db48a52e50f687cd7b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.69193
