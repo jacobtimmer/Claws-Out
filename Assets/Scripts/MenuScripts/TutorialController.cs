@@ -26,7 +26,7 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private GameObject startFightButton;
 
     [Header("Scene")]
-    [SerializeField] private string firstFightSceneName = "Fight1";
+    [SerializeField] private string nextSceneName = "DeckSelect";
 
     private int currentPageIndex = 0;
 
@@ -55,7 +55,7 @@ public class TutorialController : MonoBehaviour
     public void StartFirstFight()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(firstFightSceneName);
+        SceneManager.LoadScene(nextSceneName);
     }
 
     private void ShowPage(int pageIndex)
@@ -76,7 +76,7 @@ public class TutorialController : MonoBehaviour
         backButton.SetActive(currentPageIndex > 0);
         nextButton.SetActive(currentPageIndex < pages.Length - 1);
 
-        // Start Fight is available on every tutorial page.
+        // Available from every tutorial page so the player can continue whenever.
         startFightButton.SetActive(true);
     }
 }

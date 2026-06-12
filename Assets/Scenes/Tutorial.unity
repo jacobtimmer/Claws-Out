@@ -521,7 +521,7 @@ MonoBehaviour:
   backButton: {fileID: 1862637433}
   nextButton: {fileID: 1732635084}
   startFightButton: {fileID: 757458123}
-  firstFightSceneName: Fight1
+  nextSceneName: DeckSelect
 --- !u!4 &666053164
 Transform:
   m_ObjectHideFlags: 0
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 757458125}
   - component: {fileID: 757458124}
   m_Layer: 5
-  m_Name: StartFightButton
+  m_Name: ChooseDeckButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
