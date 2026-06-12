@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: AtAllCosts
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
   cardName: At All Costs
-  cardText: Take 30 damage, deal 40 damage
-  cardType: 
-  cardSprite: {fileID: 0}
-  energyCost: 0
-  damageMin: 0
-  damageMax: 0
+  cardText: Take 30 damage, deal 30 damage
+  cardType: 04000000
+  cardSprite: {fileID: 3642203496367934284, guid: 28f52438c4cedc441a50d44c6f78d4b8, type: 3}
+  energyCost: 3
+  damageMin: 40
+  damageMax: 40
   healthGain: 0
   armorGain: 0
   timesActivated: 1
@@ -26,4 +26,6 @@ MonoBehaviour:
   isaLifestealCard: 0
   cardsDrawn: 0
   energyGained: 0
-  selfDamage: 0
+  selfDamage: 30
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Sharpen Claws
   cardText: This turn, all claw clards deal 2 extra damage
   cardType: 01000000
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: -3992466999875452255, guid: 2597e1509a8929b4a951acfa0dfc58a0, type: 3}
   energyCost: 1
   damageMin: 0
   damageMax: 0
@@ -27,3 +27,5 @@ MonoBehaviour:
   cardsDrawn: 0
   energyGained: 0
   selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

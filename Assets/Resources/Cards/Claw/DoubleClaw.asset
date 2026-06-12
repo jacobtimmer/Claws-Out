@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: DoubleClaw
   cardText: 'Deal 2 damage 3 times. [Lifesteal]'
   cardType: 01000000
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 1083666761132297387, guid: 365e1a3b3b99c2446a2c2222304e81ee, type: 3}
   energyCost: 2
   damageMin: 4
   damageMax: 4
@@ -27,3 +27,5 @@ MonoBehaviour:
   cardsDrawn: 0
   energyGained: 0
   selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

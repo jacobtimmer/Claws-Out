@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Eat Fish
   cardText: Heal 4 Life
   cardType: 02000000
-  cardSprite: {fileID: -5776112038119290948, guid: c700a7d6d24301b49bcc54e9944402e9, type: 3}
+  cardSprite: {fileID: 3683835782841296499, guid: 61cf94b1c4e8acc4aab597361ffd5e4a, type: 3}
   energyCost: 0
   damageMin: 0
   damageMax: 0
@@ -26,3 +26,6 @@ MonoBehaviour:
   isaLifestealCard: 0
   cardsDrawn: 0
   energyGained: 0
+  selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

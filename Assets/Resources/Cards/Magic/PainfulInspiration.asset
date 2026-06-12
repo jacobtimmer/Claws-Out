@@ -16,7 +16,7 @@ MonoBehaviour:
   cardText: 'For the rest of the fight, if you were to damage yourself, draw a card
     and gain 1 life as well. [Brittle]'
   cardType: 04000000
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 8295462992380371213, guid: d90eae9889124804dbf50fab5e7c67ac, type: 3}
   energyCost: 1
   damageMin: 0
   damageMax: 0
@@ -28,3 +28,5 @@ MonoBehaviour:
   cardsDrawn: 0
   energyGained: 0
   selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

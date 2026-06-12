@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Snake Eyes
   cardText: Take 2 damage. Deal between 2 and 12 damage.
   cardType: 03000000
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 5958979480921098711, guid: 3f0a8669c45f3e1449d1720c74c41b11, type: 3}
   energyCost: 1
   damageMin: 2
   damageMax: 12
@@ -27,3 +27,5 @@ MonoBehaviour:
   cardsDrawn: 0
   energyGained: 0
   selfDamage: 2
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

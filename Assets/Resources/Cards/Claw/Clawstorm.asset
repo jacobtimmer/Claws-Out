@@ -15,10 +15,17 @@ MonoBehaviour:
   cardName: Clawstorm
   cardText: Deal 2 damage 6 times
   cardType: 01000000
-  cardSprite: {fileID: 2049402897917708650, guid: f52543ff65a6933439ccd921e1e819e6, type: 3}
+  cardSprite: {fileID: -8579681367701065529, guid: 4dc8522da0a37bc429349c4ef7003027, type: 3}
   energyCost: 3
   damageMin: 2
   damageMax: 2
   healthGain: 0
   armorGain: 0
   timesActivated: 6
+  isBrittleCard: 0
+  isaLifestealCard: 0
+  cardsDrawn: 0
+  energyGained: 0
+  selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

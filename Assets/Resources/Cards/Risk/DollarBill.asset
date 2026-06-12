@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Dollar Bill
   cardText: 50% chance to draw a card, heal 1 life, gain 1 armor, and deal 1 damage.
   cardType: 03000000
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 7532825788326813360, guid: 22993a70e8f31fd4983dd8780163f832, type: 3}
   energyCost: 0
   damageMin: 0
   damageMax: 1
@@ -27,3 +27,5 @@ MonoBehaviour:
   cardsDrawn: 1
   energyGained: 0
   selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

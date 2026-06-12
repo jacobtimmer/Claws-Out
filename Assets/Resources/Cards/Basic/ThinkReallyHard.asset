@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Think Really Hard
   cardText: 'Draw 5 cards, take 2 damage. [Brittle]]'
   cardType: 00000000
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: -3480620146457127150, guid: 47d8c1a88623fbb488c2874f6954013d, type: 3}
   energyCost: 2
   damageMin: 0
   damageMax: 0
@@ -27,3 +27,5 @@ MonoBehaviour:
   cardsDrawn: 5
   energyGained: 0
   selfDamage: 2
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

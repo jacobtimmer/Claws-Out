@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Manicure
   cardText: 'For the rest of the fight, all claw cards deal 2 extra damage. [Brittle]'
   cardType: 01000000
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: -2976632608221175593, guid: 9a9bee5ed399a964192cde0060a9d1b6, type: 3}
   energyCost: 2
   damageMin: 0
   damageMax: 0
@@ -27,3 +27,5 @@ MonoBehaviour:
   cardsDrawn: 0
   energyGained: 0
   selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Occult Blast
   cardText: 'Take 2 damage, deal 3 damage [Lifesteal]'
   cardType: 04000000
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 4399358915110916346, guid: 51a40bb0a54cbaf4dbf96268533ddc44, type: 3}
   energyCost: 1
   damageMin: 3
   damageMax: 3
@@ -27,3 +27,5 @@ MonoBehaviour:
   cardsDrawn: 0
   energyGained: 0
   selfDamage: 2
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}
