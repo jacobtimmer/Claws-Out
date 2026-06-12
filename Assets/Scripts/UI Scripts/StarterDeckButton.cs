@@ -15,6 +15,12 @@ public class StarterDeckButton : MonoBehaviour
             return;
         }
 
+        if (GameManager.Instance == null)
+        {
+            GameObject gameManagerPrefab = Resources.Load<GameObject>("Prefabs/GameManager");
+            Instantiate(gameManagerPrefab);
+        }
+
         GameManager.Instance.StartNewRun(starterDeck.startingCards);
         SceneManager.LoadScene(firstFightSceneName);
     }
