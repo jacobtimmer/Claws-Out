@@ -20,6 +20,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private DrawPileManager drawPileManager;
     private HandManager handManager;
     private DiscardManager discardManager;
+    [SerializeField] private RewardManager rewardManager;
 
     [SerializeField] private Animator enemyAnimator;
     [SerializeField] private TextMeshProUGUI battleResultText;
@@ -60,7 +61,8 @@ public class BattleManager : MonoBehaviour
 
         if (enemyStats.IsDead)
         {
-            EndBattle("You win!");
+            battleEnded = true;
+            rewardManager.ShowRewards();
         }
         else if (playerStats.IsDead)
         {
@@ -171,6 +173,7 @@ public class BattleManager : MonoBehaviour
 
         handManager.cardsInHand.Remove(cardObject);
         handManager.UpdateHandVisuals();
+        Debug.Log(card.cardName + " brittle? " + card.isBrittleCard);
 
         if (!card.isBrittleCard)
         {
