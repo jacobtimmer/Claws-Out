@@ -24,6 +24,8 @@ MonoBehaviour:
   timesActivated: 1
   isBrittleCard: 0
   isaLifestealCard: 0
-  cardsDrawn: 0
+  cardsDrawn: 4
   energyGained: 0
   selfDamage: 8
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

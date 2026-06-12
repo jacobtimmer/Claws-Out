@@ -13,12 +13,19 @@ MonoBehaviour:
   m_Name: AllIn
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
   cardName: All In!
-  cardText: Deal between 0 and 32 damage
+  cardText: Deal between 0 and 20 damage
   cardType: 03000000
   cardSprite: {fileID: 7960707291354846422, guid: 83be05aa6c2345a409d3434b5af0ac1e, type: 3}
   energyCost: 3
   damageMin: 0
-  damageMax: 32
+  damageMax: 20
   healthGain: 0
   armorGain: 0
   timesActivated: 1
+  isBrittleCard: 0
+  isaLifestealCard: 0
+  cardsDrawn: 0
+  energyGained: 0
+  selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}
