@@ -1,4 +1,5 @@
 using CardScripts;
+using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private int playerEnergy = 3;
     [SerializeField] private int maxPlayerEnergy = 3;
     [SerializeField] private int cardsDrawnPerTurn = 4;
+
+    [SerializeField] private string victorySceneName = "Victory";
 
     [SerializeField] private FighterStats playerStats;
     [SerializeField] private FighterStats enemyStats;
@@ -42,7 +45,8 @@ public class BattleManager : MonoBehaviour
     private int clawDamageBonusThisFight;
 
     private bool doubleDamageThisFight;
-    private bool fishHealOnFishPlayed;
+    private int fishHealOnFishPlayed;
+    private int fishDamageOnFishPlayed;
     private bool fishDrawOnFishPlayed;
     private bool clawEnergyOnClawPlayed;
     private bool riskEnergyOnRiskPlayed;
@@ -91,7 +95,16 @@ public class BattleManager : MonoBehaviour
         if (enemyStats.IsDead)
         {
             battleEnded = true;
-            rewardManager.ShowRewards();
+
+            if (GameManager.Instance != null && !GameManager.Instance.HasNextFight())
+            {
+                Time.timeScale = 1f;
+                SceneManager.LoadScene(victorySceneName);
+            }
+            else
+            {
+                rewardManager.ShowRewards();
+            }
         }
         else if (playerStats.IsDead)
         {
@@ -261,8 +274,21 @@ public class BattleManager : MonoBehaviour
     {
         if (HasType(card, Card.CardType.Fish))
         {
-            if (fishHealOnFishPlayed) playerStats.Heal(1);
-            if (fishDrawOnFishPlayed) DrawCards(1);
+            if (fishHealOnFishPlayed > 0)
+            {
+                playerStats.Heal(fishHealOnFishPlayed);
+            }
+
+            if (fishDamageOnFishPlayed > 0)
+            {
+                DealDamage(card, fishDamageOnFishPlayed);
+                CheckBattleEnd();
+            }
+
+            if (fishDrawOnFishPlayed)
+            {
+                DrawCards(1);
+            }
         }
 
         if (HasType(card, Card.CardType.Claw) && clawEnergyOnClawPlayed)
@@ -334,7 +360,8 @@ public class BattleManager : MonoBehaviour
             {
                 case "Dream of Fish":
                     playerStats.Heal(5);
-                    fishHealOnFishPlayed = true;
+                    fishHealOnFishPlayed += 2;
+                    fishDamageOnFishPlayed += 2;
                     break;
 
                 case "Fishy Thoughts":
