@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     //player variables
     [SerializeField] private int startingPlayerHealth = 30;
     private int playerHealth;
-    [SerializeField] private int startingWealth = 10;
-    private int playerWealth;
+    //[SerializeField] private int startingWealth = 10;
+    //private int playerWealth;
 
     private List<Card> runDeck = new List<Card>();
     private int currentFightNumber = 0;
@@ -98,14 +98,14 @@ public class GameManager : MonoBehaviour
         return playerHealth;
     }
 
-    public void SetPlayerWealth(int wealth)
+    /*public void SetPlayerWealth(int wealth)
     {
         playerWealth = wealth;
-    }
-    public int GetPlayerWealth()
+    }*/
+    /*public int GetPlayerWealth()
     {
         return playerWealth;
-    }
+    }*/
 
     public bool HasRunDeck()
     {
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
         runDeck.AddRange(startingDeck);
 
         playerHealth = startingPlayerHealth;
-        playerWealth = 0;
+        //playerWealth = 0;
         currentFightNumber = 0;
         runActive = true;
     }

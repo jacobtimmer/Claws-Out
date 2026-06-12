@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c73a1ccf1b8ff4da7eac9d5b5cbacd, type: 3}
+  m_Name: FishDeck
+  m_EditorClassIdentifier: Assembly-CSharp::CardScripts.StarterDeckData
+  deckName: Fishy Deck
+  deckDescription: The smelliest deck. Fish cards are all about healing and fishy
+    synergy.
+  deckIcon: {fileID: 0}
+  startingCards:
+  - {fileID: 11400000, guid: 92a1f4280fcf8684daf6427fd8fbd7ce, type: 2}
+  - {fileID: 11400000, guid: 92a1f4280fcf8684daf6427fd8fbd7ce, type: 2}
+  - {fileID: 11400000, guid: e18626e21668a714cb81a933d4f7f55d, type: 2}
+  - {fileID: 11400000, guid: 02ed224c4681a774890c8962da431a01, type: 2}
+  - {fileID: 11400000, guid: e5830a2fc2d40c2468489d16a74cdcd9, type: 2}
+  - {fileID: 11400000, guid: cdb08231bcf9e524cb58f463bd18d643, type: 2}
+  - {fileID: 11400000, guid: 2b5354cbafdd0ce42b2b52c56bc58594, type: 2}
+  - {fileID: 11400000, guid: eb6956391f8732e4780b8c76e54ecea5, type: 2}
+  - {fileID: 11400000, guid: ae177af4cddd79e4f884814a6b343d1d, type: 2}
+  - {fileID: 11400000, guid: 8f468987d3af1d44a866280aab7e2522, type: 2}

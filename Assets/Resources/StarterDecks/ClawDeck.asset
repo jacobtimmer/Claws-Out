@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c73a1ccf1b8ff4da7eac9d5b5cbacd, type: 3}
+  m_Name: ClawDeck
+  m_EditorClassIdentifier: Assembly-CSharp::CardScripts.StarterDeckData
+  deckName: Claws Deck
+  deckDescription: Scratch up your enemies. Claw cards are all about damage.
+  deckIcon: {fileID: 0}
+  startingCards:
+  - {fileID: 11400000, guid: e5830a2fc2d40c2468489d16a74cdcd9, type: 2}
+  - {fileID: 11400000, guid: cdb08231bcf9e524cb58f463bd18d643, type: 2}
+  - {fileID: 11400000, guid: 8db36db5120acf84da002f1cbc2f1e14, type: 2}
+  - {fileID: 11400000, guid: 785f6f89207f85542820c317ef0465b1, type: 2}
+  - {fileID: 11400000, guid: 48191ffd101a6f24b9295620c5059a2b, type: 2}
+  - {fileID: 11400000, guid: a9623cbdee193c6428f2e39321b70d75, type: 2}
+  - {fileID: 11400000, guid: 8db36db5120acf84da002f1cbc2f1e14, type: 2}
+  - {fileID: 11400000, guid: 5b4e8174e53f1b844b5db5d44ad6d646, type: 2}
+  - {fileID: 11400000, guid: 4f224d3de29b3c441bf24d8b3fb183ec, type: 2}
+  - {fileID: 11400000, guid: a11459e2d634a4e4d86e67cb4fb10678, type: 2}
