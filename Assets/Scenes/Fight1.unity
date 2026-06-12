@@ -1664,7 +1664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5253332207852502211, guid: cc62c16bf4a6db14baf605b2f7d509fc, type: 3}
       propertyPath: fightSceneNames.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5253332207852502211, guid: cc62c16bf4a6db14baf605b2f7d509fc, type: 3}
       propertyPath: 'fightSceneNames.Array.data[0]'
@@ -1676,7 +1676,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5253332207852502211, guid: cc62c16bf4a6db14baf605b2f7d509fc, type: 3}
       propertyPath: 'fightSceneNames.Array.data[2]'
-      value: 
+      value: Fight3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253332207852502211, guid: cc62c16bf4a6db14baf605b2f7d509fc, type: 3}
+      propertyPath: 'fightSceneNames.Array.data[3]'
+      value: Bossfight
       objectReference: {fileID: 0}
     - target: {fileID: 5727985837560009597, guid: cc62c16bf4a6db14baf605b2f7d509fc, type: 3}
       propertyPath: m_LocalPosition.x
