@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c73a1ccf1b8ff4da7eac9d5b5cbacd, type: 3}
+  m_Name: MagicDeck
+  m_EditorClassIdentifier: Assembly-CSharp::CardScripts.StarterDeckData
+  deckName: Magical Deck
+  deckDescription: A magical time. Magic cards deal a ton of damage at the cost of
+    your owl life.
+  deckIcon: {fileID: 0}
+  startingCards:
+  - {fileID: 11400000, guid: e5830a2fc2d40c2468489d16a74cdcd9, type: 2}
+  - {fileID: 11400000, guid: cdb08231bcf9e524cb58f463bd18d643, type: 2}
+  - {fileID: 11400000, guid: 613d00481e3cde44bb90446d931138d4, type: 2}
+  - {fileID: 11400000, guid: bff5da364a4e46b41b0a7ddd8ac7f776, type: 2}
+  - {fileID: 11400000, guid: b31e975f5e459fd4c94dcc81fd86425c, type: 2}
+  - {fileID: 11400000, guid: 82bdea4bb2e72684187b6d2c7b0c950d, type: 2}
+  - {fileID: 11400000, guid: 62da1e49b4643d44c9f64b407d4a11c3, type: 2}
+  - {fileID: 11400000, guid: f775389ed031dc04ba016b87e0a29279, type: 2}
+  - {fileID: 11400000, guid: d58103bcc38cd66468d3aed8b01da77b, type: 2}
+  - {fileID: 11400000, guid: 5bc4ec136f9f0e243b8f7b862d2cfae3, type: 2}

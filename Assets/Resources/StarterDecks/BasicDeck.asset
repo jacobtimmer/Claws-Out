@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c73a1ccf1b8ff4da7eac9d5b5cbacd, type: 3}
+  m_Name: BasicDeck
+  m_EditorClassIdentifier: Assembly-CSharp::CardScripts.StarterDeckData
+  deckName: Basic Deck
+  deckDescription: Solid, all rounder deck
+  deckIcon: {fileID: 0}
+  startingCards:
+  - {fileID: 11400000, guid: e5830a2fc2d40c2468489d16a74cdcd9, type: 2}
+  - {fileID: 11400000, guid: e5830a2fc2d40c2468489d16a74cdcd9, type: 2}
+  - {fileID: 11400000, guid: e5830a2fc2d40c2468489d16a74cdcd9, type: 2}
+  - {fileID: 11400000, guid: cdb08231bcf9e524cb58f463bd18d643, type: 2}
+  - {fileID: 11400000, guid: cdb08231bcf9e524cb58f463bd18d643, type: 2}
+  - {fileID: 11400000, guid: cdb08231bcf9e524cb58f463bd18d643, type: 2}
+  - {fileID: 11400000, guid: 02ed224c4681a774890c8962da431a01, type: 2}
+  - {fileID: 11400000, guid: 670fe253a9b5ce04bb8c29efc4d1deea, type: 2}
+  - {fileID: 11400000, guid: 670fe253a9b5ce04bb8c29efc4d1deea, type: 2}
+  - {fileID: 11400000, guid: 8f036b0ae22bc4f4dbfbddbed3a6bb45, type: 2}

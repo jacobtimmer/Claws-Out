@@ -79,26 +79,18 @@ public class DeckManager : MonoBehaviour
 
     public void BattleSetup()
     {
-        // If we are in a non-battle scene like Start Menu,
-        // these managers may not exist yet. Just wait.
         if (handManager == null || drawPileManager == null)
         {
             FindBattleManagers();
             return;
         }
 
-        // If the deck somehow has not been loaded yet, load it.
-        if (allCards.Count == 0)
-        {
-            LoadDeck();
-        }
+        LoadDeck();
 
         handManager.BattleSetup(maxHandSize);
         drawPileManager.MakeDrawPile(allCards);
         drawPileManager.BattleSetup(startingHandSize, maxHandSize);
 
         startBattleRun = false;
-
-        Debug.Log("DeckManager battle setup complete. Cards in deck: " + allCards.Count);
     }
 }

@@ -20,10 +20,22 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private DrawPileManager drawPileManager;
     private HandManager handManager;
     private DiscardManager discardManager;
+    [SerializeField] private RewardManager rewardManager;
 
     [SerializeField] private Animator enemyAnimator;
     [SerializeField] private TextMeshProUGUI battleResultText;
     private bool battleEnded = false;
+
+    private int clawDamageBonusThisTurn;
+    private int clawDamageBonusThisFight;
+
+    private bool doubleDamageThisFight;
+    private bool fishHealOnFishPlayed;
+    private bool fishDrawOnFishPlayed;
+    private bool clawEnergyOnClawPlayed;
+    private bool riskEnergyOnRiskPlayed;
+    private bool drawOnSelfDamage;
+    private bool halveSelfDamage;
 
     private void Awake()
     {
@@ -48,6 +60,10 @@ public class BattleManager : MonoBehaviour
         if (playerStats != null)
         {
             playerStats.ClearArmor();
+            if (GameManager.Instance != null && GameManager.Instance.IsRunActive())
+            {
+                playerStats.SetCurrentHealth(GameManager.Instance.GetPlayerHealth());
+            }
         }
     }
 
@@ -60,7 +76,8 @@ public class BattleManager : MonoBehaviour
 
         if (enemyStats.IsDead)
         {
-            EndBattle("You win!");
+            battleEnded = true;
+            rewardManager.ShowRewards();
         }
         else if (playerStats.IsDead)
         {
@@ -97,6 +114,7 @@ public class BattleManager : MonoBehaviour
 
     public void EndPlayerTurn()
     {
+        clawDamageBonusThisTurn = 0;
         DiscardHand();
         enemyStats.ClearArmor();
         EnemyTurn();
@@ -171,8 +189,12 @@ public class BattleManager : MonoBehaviour
 
         handManager.cardsInHand.Remove(cardObject);
         handManager.UpdateHandVisuals();
+        Debug.Log(card.cardName + " brittle? " + card.isBrittleCard);
 
-        discardManager.AddToDiscard(card);
+        if (!card.isBrittleCard)
+        {
+            discardManager.AddToDiscard(card); //brittle ones go poof
+        }
 
         Destroy(cardObject);
 
@@ -183,11 +205,27 @@ public class BattleManager : MonoBehaviour
     {
         for (int i = 0; i < card.timesActivated; i++)
         {
+            if (HasType(card, Card.CardType.Fish))
+            {
+                if (fishHealOnFishPlayed) playerStats.Heal(1);
+                if (fishDrawOnFishPlayed) DrawCards(1);
+            }
+
+            if (HasType(card, Card.CardType.Claw) && clawEnergyOnClawPlayed)
+            {
+                GainEnergy(1);
+            }
+
+            if (HasType(card, Card.CardType.Risk) && riskEnergyOnRiskPlayed)
+            {
+                GainEnergy(1);
+            }
+            int damageDealt = 0;
+
             if (card.damageMax > 0)
             {
                 int damage = Random.Range(card.damageMin, card.damageMax + 1);
-                enemyStats.TakeDamage(damage);
-                CheckBattleEnd();
+                damageDealt += DealDamage(card, damage);
             }
 
             if (card.healthGain > 0)
@@ -199,8 +237,132 @@ public class BattleManager : MonoBehaviour
             {
                 playerStats.GainArmor(card.armorGain);
             }
+
+            if (card.selfDamage > 0)
+            {
+                TakeSelfDamage(card.selfDamage);
+            }
+
+            if (card.isaLifestealCard && damageDealt > 0)
+            {
+                playerStats.Heal(damageDealt);
+            }
+
+            if (card.energyGained > 0)
+            {
+                playerEnergy += card.energyGained;
+                UpdateEnergyUI();
+            }
+
+            if (card.cardsDrawn > 0)
+            {
+                for (int j = 0; j < card.cardsDrawn; j++)
+                {
+                    drawPileManager.DrawCard(handManager);
+                }
+            }
+
+            switch (card.cardName)
+            {
+                case "Dream of Fish":
+                    playerStats.Heal(5);
+                    fishHealOnFishPlayed = true;
+                    break;
+
+                case "Fishy Thoughts":
+                    fishDrawOnFishPlayed = true;
+                    break;
+
+                case "Manicure":
+                    clawDamageBonusThisFight += 2;
+                    break;
+
+                case "Sharpen Claws":
+                    clawDamageBonusThisTurn += 2;
+                    break;
+
+                case "Scratching Post":
+                    clawEnergyOnClawPlayed = true;
+                    break;
+
+                case "LimitlessInspiration":
+                    doubleDamageThisFight = true;
+                    break;
+
+                case "Painful Inspiration":
+                    drawOnSelfDamage = true;
+                    break;
+
+                case "Prepared Mind":
+                    halveSelfDamage = true;
+                    break;
+
+                case "Sunk Cost Fallacy":
+                    riskEnergyOnRiskPlayed = true;
+                    break;
+            }
+
+            CheckBattleEnd();
         }
 
         Debug.Log("Played card: " + card.cardName);
+    }
+
+    private bool HasType(Card card, Card.CardType type)
+    {
+        return card.cardType != null && card.cardType.Contains(type);
+    }
+
+    private void GainEnergy(int amount)
+    {
+        playerEnergy += amount;
+        UpdateEnergyUI();
+    }
+
+    private void DrawCards(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            drawPileManager.DrawCard(handManager);
+        }
+    }
+
+    private int GetModifiedDamage(Card card, int damage)
+    {
+        if (HasType(card, Card.CardType.Claw))
+        {
+            damage += clawDamageBonusThisTurn + clawDamageBonusThisFight;
+        }
+
+        if (doubleDamageThisFight)
+        {
+            damage *= 2;
+        }
+
+        return damage;
+    }
+
+    private int DealDamage(Card card, int damage)
+    {
+        int finalDamage = GetModifiedDamage(card, damage);
+        enemyStats.TakeDamage(finalDamage);
+        return finalDamage;
+    }
+
+    private void TakeSelfDamage(int amount)
+    {
+        if (amount <= 0) return;
+
+        if (halveSelfDamage)
+        {
+            amount = Mathf.CeilToInt(amount / 2f);
+        }
+
+        playerStats.TakeDamage(amount);
+
+        if (drawOnSelfDamage)
+        {
+            DrawCards(1);
+        }
     }
 }

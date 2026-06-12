@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
     //player variables
     [SerializeField] private int startingPlayerHealth = 30;
     private int playerHealth;
-    [SerializeField] private int startingWealth = 10;
-    private int playerWealth;
+    //[SerializeField] private int startingWealth = 10;
+    //private int playerWealth;
 
     private List<Card> runDeck = new List<Card>();
     private int currentFightNumber = 0;
     private bool runActive = false;
+
+    [SerializeField] private List<string> fightSceneNames = new List<string>();
 
     public AudioManager audioManager { get; private set; }
     public DeckManager deckManager { get; private set; }
@@ -36,6 +38,21 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject); //if there is already an instance of the gamemanager, destroy this one to ensure there is only one instance
         }
+    }
+
+    public bool HasNextFight()
+    {
+        return currentFightNumber + 1 < fightSceneNames.Count;
+    }
+
+    public string GetNextFightSceneName()
+    {
+        if (!HasNextFight())
+        {
+            return "";
+        }
+
+        return fightSceneNames[currentFightNumber + 1];
     }
 
     private void InitializeManagers()
@@ -98,14 +115,14 @@ public class GameManager : MonoBehaviour
         return playerHealth;
     }
 
-    public void SetPlayerWealth(int wealth)
+    /*public void SetPlayerWealth(int wealth)
     {
         playerWealth = wealth;
-    }
-    public int GetPlayerWealth()
+    }*/
+    /*public int GetPlayerWealth()
     {
         return playerWealth;
-    }
+    }*/
 
     public bool HasRunDeck()
     {
@@ -123,7 +140,7 @@ public class GameManager : MonoBehaviour
         runDeck.AddRange(startingDeck);
 
         playerHealth = startingPlayerHealth;
-        playerWealth = 0;
+        //playerWealth = 0;
         currentFightNumber = 0;
         runActive = true;
     }

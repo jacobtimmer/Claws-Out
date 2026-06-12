@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c73a1ccf1b8ff4da7eac9d5b5cbacd, type: 3}
+  m_Name: GamblingDeck
+  m_EditorClassIdentifier: Assembly-CSharp::CardScripts.StarterDeckData
+  deckName: Gambling Deck
+  deckDescription: Risk it all with this deck focused on chance.
+  deckIcon: {fileID: 0}
+  startingCards:
+  - {fileID: 11400000, guid: e5830a2fc2d40c2468489d16a74cdcd9, type: 2}
+  - {fileID: 11400000, guid: e5830a2fc2d40c2468489d16a74cdcd9, type: 2}
+  - {fileID: 11400000, guid: 02ed224c4681a774890c8962da431a01, type: 2}
+  - {fileID: 11400000, guid: 8dfce008879990f42934224672cbf245, type: 2}
+  - {fileID: 11400000, guid: 99a27111f5416394eb6890e0c135091b, type: 2}
+  - {fileID: 11400000, guid: ae383a1b17173224183c30ca543de656, type: 2}
+  - {fileID: 11400000, guid: feee5ec134b5ca647ab7f7f8beba38be, type: 2}
+  - {fileID: 11400000, guid: 40e62417d6f8502469656cc28556d7fb, type: 2}
+  - {fileID: 11400000, guid: 57a330e6e03117346809378751ba0792, type: 2}
+  - {fileID: 11400000, guid: 9485afa51500d7b429bd34112e8f0fa0, type: 2}

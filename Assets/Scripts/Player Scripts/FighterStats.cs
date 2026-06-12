@@ -62,4 +62,15 @@ public class FighterStats : MonoBehaviour
             armorText.text = "Armor: " + armor.ToString();
         }
     }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public void SetCurrentHealth(int health)
+    {
+        currentHealth = Mathf.Clamp(health, 0, maxHealth);
+        UpdateUI();
+    }
 }
