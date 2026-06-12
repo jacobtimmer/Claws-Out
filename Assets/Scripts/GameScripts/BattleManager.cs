@@ -13,8 +13,20 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI energyText;
 
-    [SerializeField] private int enemyArmorGain = 12;
-    [SerializeField] private int enemyBigAttackDamage = 18;
+    private enum EnemyPattern
+    {
+        ArmorThenBigAttack,
+        AlternatingAttackArmor,
+        ScalingAttack,
+        RandomAttackOrArmor
+    }
+
+    [SerializeField] private EnemyPattern enemyPattern = EnemyPattern.ArmorThenBigAttack;
+
+    [SerializeField] private int enemyLightAttackDamage = 6;
+    [SerializeField] private int enemyArmorGain = 8;
+    [SerializeField] private int enemyBigAttackDamage = 15;
+    [SerializeField] private int enemyScalingDamagePerTurn = 2;
     private int enemyTurnCounter = 0;
 
     [SerializeField] private DrawPileManager drawPileManager;
@@ -36,6 +48,8 @@ public class BattleManager : MonoBehaviour
     private bool riskEnergyOnRiskPlayed;
     private bool drawOnSelfDamage;
     private bool halveSelfDamage;
+
+
 
     private void Awake()
     {
@@ -129,18 +143,60 @@ public class BattleManager : MonoBehaviour
     {
         enemyTurnCounter++;
 
-        if (enemyTurnCounter % 3 == 0)
+        switch (enemyPattern)
         {
-            enemyAnimator?.SetTrigger("Attack");
-            playerStats.TakeDamage(enemyBigAttackDamage);
-            CheckBattleEnd();
-            Debug.Log("Enemy used a big attack for " + enemyBigAttackDamage);
+            case EnemyPattern.ArmorThenBigAttack:
+                if (enemyTurnCounter % 3 == 0)
+                {
+                    EnemyAttack(enemyBigAttackDamage);
+                }
+                else
+                {
+                    EnemyGainArmor(enemyArmorGain);
+                }
+                break;
+
+            case EnemyPattern.AlternatingAttackArmor:
+                if (enemyTurnCounter % 2 == 1)
+                {
+                    EnemyAttack(enemyLightAttackDamage);
+                }
+                else
+                {
+                    EnemyGainArmor(enemyArmorGain);
+                }
+                break;
+
+            case EnemyPattern.ScalingAttack:
+                int scalingDamage = enemyLightAttackDamage + enemyScalingDamagePerTurn * (enemyTurnCounter - 1);
+                EnemyAttack(scalingDamage);
+                break;
+
+            case EnemyPattern.RandomAttackOrArmor:
+                if (Random.value < 0.5f)
+                {
+                    EnemyAttack(enemyLightAttackDamage);
+                }
+                else
+                {
+                    EnemyGainArmor(enemyArmorGain);
+                }
+                break;
         }
-        else
-        {
-            enemyStats.GainArmor(enemyArmorGain);
-            Debug.Log("Enemy gained " + enemyArmorGain + " armor.");
-        }
+    }
+
+    private void EnemyAttack(int damage)
+    {
+        enemyAnimator?.SetTrigger("Attack");
+        playerStats.TakeDamage(damage);
+        CheckBattleEnd();
+        Debug.Log("Enemy attacked for " + damage);
+    }
+
+    private void EnemyGainArmor(int armor)
+    {
+        enemyStats.GainArmor(armor);
+        Debug.Log("Enemy gained " + armor + " armor.");
     }
 
     private void UpdateEnergyUI()
