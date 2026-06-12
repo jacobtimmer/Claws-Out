@@ -1437,7 +1437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
   mainMenuButtons: {fileID: 1505346748}
   creditsPanel: {fileID: 1668954074}
-  gameSceneName: Fight1
+  gameSceneName: DeckSelect
 --- !u!4 &1335813040
 Transform:
   m_ObjectHideFlags: 0

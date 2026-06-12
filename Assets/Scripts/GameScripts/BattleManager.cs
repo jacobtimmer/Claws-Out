@@ -172,7 +172,10 @@ public class BattleManager : MonoBehaviour
         handManager.cardsInHand.Remove(cardObject);
         handManager.UpdateHandVisuals();
 
-        discardManager.AddToDiscard(card);
+        if (!card.isBrittleCard)
+        {
+            discardManager.AddToDiscard(card); //brittle ones go poof
+        }
 
         Destroy(cardObject);
 
@@ -183,11 +186,13 @@ public class BattleManager : MonoBehaviour
     {
         for (int i = 0; i < card.timesActivated; i++)
         {
+            int damageDealt = 0;
+
             if (card.damageMax > 0)
             {
                 int damage = Random.Range(card.damageMin, card.damageMax + 1);
                 enemyStats.TakeDamage(damage);
-                CheckBattleEnd();
+                damageDealt += damage;
             }
 
             if (card.healthGain > 0)
@@ -199,6 +204,32 @@ public class BattleManager : MonoBehaviour
             {
                 playerStats.GainArmor(card.armorGain);
             }
+
+            if (card.selfDamage > 0)
+            {
+                playerStats.TakeDamage(card.selfDamage);
+            }
+
+            if (card.isaLifestealCard && damageDealt > 0)
+            {
+                playerStats.Heal(damageDealt);
+            }
+
+            if (card.energyGained > 0)
+            {
+                playerEnergy += card.energyGained;
+                UpdateEnergyUI();
+            }
+
+            if (card.cardsDrawn > 0)
+            {
+                for (int j = 0; j < card.cardsDrawn; j++)
+                {
+                    drawPileManager.DrawCard(handManager);
+                }
+            }
+
+            CheckBattleEnd();
         }
 
         Debug.Log("Played card: " + card.cardName);
