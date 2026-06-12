@@ -8,7 +8,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private int maxPlayerEnergy = 3;
     [SerializeField] private int cardsDrawnPerTurn = 4;
 
-    [SerializeField] private FighterStats playerStats; //so we can change stats of player and enemy
+    [SerializeField] private FighterStats playerStats;
     [SerializeField] private FighterStats enemyStats;
 
     [SerializeField] private TextMeshProUGUI energyText;
@@ -17,7 +17,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private int enemyBigAttackDamage = 18;
     private int enemyTurnCounter = 0;
 
-    [SerializeField] private DrawPileManager drawPileManager; //place drawPilemnager here in inspector
+    [SerializeField] private DrawPileManager drawPileManager;
     private HandManager handManager;
     private DiscardManager discardManager;
 
@@ -25,7 +25,11 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI battleResultText;
     private bool battleEnded = false;
 
-
+    private void Awake()
+    {
+        handManager = FindAnyObjectByType<HandManager>();
+        discardManager = FindAnyObjectByType<DiscardManager>();
+    }
 
     private void Start()
     {
@@ -36,13 +40,15 @@ public class BattleManager : MonoBehaviour
             battleResultText.gameObject.SetActive(false);
         }
 
-        StartPlayerTurn();
-    }
+        // Do NOT call StartPlayerTurn() here.
+        // DeckManager.BattleSetup() already draws the starting hand.
+        playerEnergy = maxPlayerEnergy;
+        UpdateEnergyUI();
 
-    private void Awake()
-    {
-        handManager = FindAnyObjectByType<HandManager>();
-        discardManager = FindAnyObjectByType<DiscardManager>();
+        if (playerStats != null)
+        {
+            playerStats.ClearArmor();
+        }
     }
 
     private void CheckBattleEnd()
@@ -60,7 +66,6 @@ public class BattleManager : MonoBehaviour
         {
             EndBattle("You lose!");
         }
-
     }
 
     private void EndBattle(string message)
@@ -78,9 +83,9 @@ public class BattleManager : MonoBehaviour
 
     public void StartPlayerTurn()
     {
-        playerEnergy = maxPlayerEnergy; //new energy
-        UpdateEnergyUI(); //update energy UI
-        playerStats.ClearArmor(); //armor goes away
+        playerEnergy = maxPlayerEnergy;
+        UpdateEnergyUI();
+        playerStats.ClearArmor();
 
         for (int i = 0; i < cardsDrawnPerTurn; i++)
         {
@@ -93,20 +98,24 @@ public class BattleManager : MonoBehaviour
     public void EndPlayerTurn()
     {
         DiscardHand();
-        enemyStats.ClearArmor(); //enemy armor goes away
+        enemyStats.ClearArmor();
         EnemyTurn();
-        StartPlayerTurn();
+
+        if (!battleEnded)
+        {
+            StartPlayerTurn();
+        }
     }
 
     private void EnemyTurn()
     {
         enemyTurnCounter++;
 
-        if (enemyTurnCounter % 3 == 0) //every 3rd turn, enemy does big attack instead of gaining armor
+        if (enemyTurnCounter % 3 == 0)
         {
-            enemyAnimator?.SetTrigger("Attack"); //animate attack
+            enemyAnimator?.SetTrigger("Attack");
             playerStats.TakeDamage(enemyBigAttackDamage);
-            CheckBattleEnd(); //check if player died from attack
+            CheckBattleEnd();
             Debug.Log("Enemy used a big attack for " + enemyBigAttackDamage);
         }
         else
@@ -118,18 +127,21 @@ public class BattleManager : MonoBehaviour
 
     private void UpdateEnergyUI()
     {
-        energyText.text = "Energy: " + playerEnergy + " / " + maxPlayerEnergy;
+        if (energyText != null)
+        {
+            energyText.text = "Energy: " + playerEnergy + " / " + maxPlayerEnergy;
+        }
     }
 
     private void DiscardHand()
     {
         for (int i = handManager.cardsInHand.Count - 1; i >= 0; i--)
         {
-            GameObject cardObject = handManager.cardsInHand[i]; //grabs card
+            GameObject cardObject = handManager.cardsInHand[i];
 
             if (cardObject != null && cardObject.TryGetComponent(out CardDisplay cardDisplay))
             {
-                discardManager.AddToDiscard(cardDisplay.cardData); //discards and destroys
+                discardManager.AddToDiscard(cardDisplay.cardData);
             }
 
             Destroy(cardObject);
@@ -145,6 +157,7 @@ public class BattleManager : MonoBehaviour
         {
             return false;
         }
+
         if (playerEnergy < card.energyCost)
         {
             Debug.Log("Not enough energy.");
@@ -172,9 +185,9 @@ public class BattleManager : MonoBehaviour
         {
             if (card.damageMax > 0)
             {
-                int damage = Random.Range(card.damageMin, card.damageMax + 1); //Random.Range(4, 5) always returns 4, so add 1 to max works
+                int damage = Random.Range(card.damageMin, card.damageMax + 1);
                 enemyStats.TakeDamage(damage);
-                CheckBattleEnd(); //check if enemy died from attack
+                CheckBattleEnd();
             }
 
             if (card.healthGain > 0)

@@ -2038,22 +2038,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 148375008339273727, guid: f44e71977150f481f8f11b804d971e70, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1957517711}
-    - target: {fileID: 148375008339273727, guid: f44e71977150f481f8f11b804d971e70, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 291836985152494734, guid: f44e71977150f481f8f11b804d971e70, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1957517711}
-    - target: {fileID: 291836985152494734, guid: f44e71977150f481f8f11b804d971e70, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToMainMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 2407401349845943593, guid: f44e71977150f481f8f11b804d971e70, type: 3}
       propertyPath: m_Name
       value: PauseMenuCanvas
@@ -2138,46 +2122,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7319205370847896396, guid: f44e71977150f481f8f11b804d971e70, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1957517711}
-    - target: {fileID: 7319205370847896396, guid: f44e71977150f481f8f11b804d971e70, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2407401349845943593, guid: f44e71977150f481f8f11b804d971e70, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1957517711}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44e71977150f481f8f11b804d971e70, type: 3}
---- !u!1 &1957517709 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2407401349845943593, guid: f44e71977150f481f8f11b804d971e70, type: 3}
-  m_PrefabInstance: {fileID: 1957517708}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1957517710 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6615071335941402994, guid: f44e71977150f481f8f11b804d971e70, type: 3}
-  m_PrefabInstance: {fileID: 1957517708}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1957517711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1957517709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb370d21a951240fd82f979f1262f00b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PauseMenuController
-  pauseMenuPanel: {fileID: 1957517710}
-  mainMenuSceneName: Start Menu
 --- !u!1 &1963699446
 GameObject:
   m_ObjectHideFlags: 0

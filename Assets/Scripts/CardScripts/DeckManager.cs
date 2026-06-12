@@ -1,31 +1,70 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using CardScripts;
 
 public class DeckManager : MonoBehaviour
 {
-    //list of all cards in the deck, this will be populated from the resources folder
     public List<Card> allCards = new List<Card>();
 
     [SerializeField] private int startingHandSize = 5;
-    //set hand size inside this script
     [SerializeField] private int maxHandSize = 10;
+
     public int currentHandSize;
+
     private HandManager handManager;
     private DrawPileManager drawPileManager;
+
     private bool startBattleRun = true;
+
+    private void Awake()
+    {
+        FindBattleManagers();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     private void Start()
     {
-        //load all card assets from the resources folder into the deck, all possible cards
-        //Card[] cards = Resources.LoadAll<Card>("Cards");
+        LoadDeck();
+    }
 
-        //Add the loaded cards to the allCards list
-        //allCards.AddRange(cards);
+    private void Update()
+    {
+        if (startBattleRun)
+        {
+            BattleSetup();
+        }
+    }
 
-        //allCards.Clear() runs whenever that DeckManager instance’s Start() runs. So:  If each fight scene has a fresh DeckManager, it runs once per fight. If DeckManager persists under GameManager, it runs only once when that persistent object is created.
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // This runs every time a new scene loads or restarts.
+        // Since DeckManager persists through DontDestroyOnLoad,
+        // we need to reset these references for the new scene.
+        FindBattleManagers();
 
-        allCards.Clear(); //clears the list
+        // Let the deck rebuild when entering/restarting a battle scene.
+        startBattleRun = true;
+    }
+
+    private void FindBattleManagers()
+    {
+        drawPileManager = FindAnyObjectByType<DrawPileManager>();
+        handManager = FindAnyObjectByType<HandManager>();
+    }
+
+    private void LoadDeck()
+    {
+        allCards.Clear();
 
         if (GameManager.Instance != null && GameManager.Instance.HasRunDeck())
         {
@@ -38,31 +77,28 @@ public class DeckManager : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        if(drawPileManager == null)
-        {
-            drawPileManager = FindAnyObjectByType<DrawPileManager>();
-        }
-        if (handManager == null)
-        {
-            handManager = FindAnyObjectByType<HandManager>();
-        }
-    }
-
-    private void Update()
-    {
-        if (startBattleRun)
-        {
-            BattleSetup();
-        }
-    }
-
     public void BattleSetup()
     {
+        // If we are in a non-battle scene like Start Menu,
+        // these managers may not exist yet. Just wait.
+        if (handManager == null || drawPileManager == null)
+        {
+            FindBattleManagers();
+            return;
+        }
+
+        // If the deck somehow has not been loaded yet, load it.
+        if (allCards.Count == 0)
+        {
+            LoadDeck();
+        }
+
         handManager.BattleSetup(maxHandSize);
         drawPileManager.MakeDrawPile(allCards);
         drawPileManager.BattleSetup(startingHandSize, maxHandSize);
+
         startBattleRun = false;
+
+        Debug.Log("DeckManager battle setup complete. Cards in deck: " + allCards.Count);
     }
 }
