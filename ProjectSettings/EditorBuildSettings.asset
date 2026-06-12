@@ -12,7 +12,19 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Menu.unity
     guid: 1abb78da0542e294ea80c1a42388995c
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: bf289a78bc607fc4c897b03b61367e9f
+  - enabled: 1
     path: Assets/Scenes/Fight1.unity
     guid: d77ef14715583e84c8dd5a1fce50ba63
+  - enabled: 1
+    path: Assets/Scenes/Fight2.unity
+    guid: 09e9209c777d7dc458a71df75014aeb8
+  - enabled: 1
+    path: Assets/Scenes/DeckSelect.unity
+    guid: c4aff70b025514545badde4d46c67f42
+  - enabled: 1
+    path: Assets/Scenes/IntroSeqeunce.unity
+    guid: 13ed021475c76fc4b9ff3c6fcfc123e2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

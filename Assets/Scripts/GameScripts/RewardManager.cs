@@ -1,0 +1,38 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using CardScripts;
+
+public class RewardManager : MonoBehaviour
+{
+    [SerializeField] private GameObject rewardPanel;
+    [SerializeField] private RewardCardButton[] rewardButtons;
+    [SerializeField] private string nextFightSceneName = "Fight1";
+
+    private Card[] rewardPool;
+
+    private void Awake()
+    {
+        rewardPanel.SetActive(false);
+        rewardPool = Resources.LoadAll<Card>("Cards");
+    }
+
+    public void ShowRewards()
+    {
+        rewardPanel.SetActive(true);
+
+        for (int i = 0; i < rewardButtons.Length; i++)
+        {
+            Card randomCard = rewardPool[Random.Range(0, rewardPool.Length)];
+            rewardButtons[i].SetCard(randomCard, this);
+        }
+    }
+
+    public void ChooseReward(Card card)
+    {
+        GameManager.Instance.AddCardToRunDeck(card);
+        GameManager.Instance.AdvanceFight();
+
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(nextFightSceneName);
+    }
+}
