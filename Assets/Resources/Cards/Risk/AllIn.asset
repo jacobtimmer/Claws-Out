@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: All In!
   cardText: Deal between 0 and 20 damage
   cardType: 03000000
-  cardSprite: {fileID: 7960707291354846422, guid: 83be05aa6c2345a409d3434b5af0ac1e, type: 3}
+  cardSprite: {fileID: 9183916427102891892, guid: c194f077c7cdfaf4fa183395f2970f04, type: 3}
   energyCost: 3
   damageMin: 0
   damageMax: 20

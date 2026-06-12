@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardScripts.Card
   cardName: Procrastinate
   cardText: Take 8 damage, draw 4 cards.
-  cardType: 
-  cardSprite: {fileID: 0}
+  cardType: 04000000
+  cardSprite: {fileID: -6315054507669112603, guid: 2823423ed97e9214aaf0cbd734b38966, type: 3}
   energyCost: 1
   damageMin: 0
   damageMax: 0

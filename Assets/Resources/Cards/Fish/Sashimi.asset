@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Sashimi
   cardText: Draw 3 cards and heal 1 life
   cardType: 02000000
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 3922987957411462201, guid: 92da31c622a8a0d4487820343051bc8b, type: 3}
   energyCost: 1
   damageMin: 0
   damageMax: 0
@@ -26,3 +26,6 @@ MonoBehaviour:
   isaLifestealCard: 0
   cardsDrawn: 3
   energyGained: 0
+  selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

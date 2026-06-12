@@ -15,10 +15,17 @@ MonoBehaviour:
   cardName: Scratch
   cardText: Deal 1 damage
   cardType: 01000000
-  cardSprite: {fileID: 927548953822610855, guid: c83a2a54cecc16a48b677025e9756061, type: 3}
+  cardSprite: {fileID: -8540397549773956295, guid: 33d34e448f84298468c454ea880b4faa, type: 3}
   energyCost: 0
   damageMin: 1
   damageMax: 1
   healthGain: 0
   armorGain: 0
   timesActivated: 1
+  isBrittleCard: 0
+  isaLifestealCard: 0
+  cardsDrawn: 0
+  energyGained: 0
+  selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

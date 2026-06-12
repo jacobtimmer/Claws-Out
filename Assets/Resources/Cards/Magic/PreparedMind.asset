@@ -16,8 +16,8 @@ MonoBehaviour:
   cardText: 'For the rest of the fight, if you were to damage yourself, take half
     that damage instead. [Brittle]'
   cardType: 04000000
-  cardSprite: {fileID: 0}
-  energyCost: 0
+  cardSprite: {fileID: -3347103149696852726, guid: 69503c82150cda44a9985cbd799743a5, type: 3}
+  energyCost: 2
   damageMin: 0
   damageMax: 0
   healthGain: 0
@@ -28,3 +28,5 @@ MonoBehaviour:
   cardsDrawn: 0
   energyGained: 0
   selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

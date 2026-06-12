@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Tuna Slap
   cardText: Deal 8 Damage. Heal 2 Life.
   cardType: 02000000
-  cardSprite: {fileID: 8125205921148050336, guid: 87816540901d93841953cf99bb03baa7, type: 3}
+  cardSprite: {fileID: -8045340325185318027, guid: aeab422c2e02bec4683d12d744cf61f6, type: 3}
   energyCost: 2
   damageMin: 8
   damageMax: 8
@@ -26,3 +26,6 @@ MonoBehaviour:
   isaLifestealCard: 0
   cardsDrawn: 0
   energyGained: 0
+  selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}

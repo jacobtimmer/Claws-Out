@@ -16,7 +16,7 @@ MonoBehaviour:
   cardText: 'For the rest of the fight, whenver you play a risk card, gain 1 energy.
     [Brittle]'
   cardType: 03000000
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 8835772708947982697, guid: b63b24bc188d5eb42bb6e868a0282e25, type: 3}
   energyCost: 3
   damageMin: 0
   damageMax: 0

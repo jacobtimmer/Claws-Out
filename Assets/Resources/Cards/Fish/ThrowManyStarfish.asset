@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Throw Many Starfish
   cardText: Deal 1 damage and heal 1 life, 10 times.
   cardType: 02000000
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 6986384854561363551, guid: 1b9eefde0fea19b459376e3091a95ae1, type: 3}
   energyCost: 3
   damageMin: 1
   damageMax: 1
@@ -26,3 +26,6 @@ MonoBehaviour:
   isaLifestealCard: 0
   cardsDrawn: 0
   energyGained: 0
+  selfDamage: 0
+  cardSoundEffectPlayer: {fileID: 0}
+  cardSoundEffect: {fileID: 0}
