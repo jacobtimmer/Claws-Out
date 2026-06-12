@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StarterDeckButton
   starterDeck: {fileID: 11400000, guid: 6efbc1c7e946a4e46a1e1cd78e47745b, type: 2}
-  firstFightSceneName: Fight1
+  firstFightSceneName: IntroSequence
 --- !u!114 &512848113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StarterDeckButton
   starterDeck: {fileID: 11400000, guid: e05cab5cabdc46c49b8dfe1ea952fd21, type: 2}
-  firstFightSceneName: Fight1
+  firstFightSceneName: IntroSequence
 --- !u!114 &719082586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StarterDeckButton
   starterDeck: {fileID: 11400000, guid: 9376105f1ad7b12438277dce8ae63ee5, type: 2}
-  firstFightSceneName: Fight1
+  firstFightSceneName: IntroSequence
 --- !u!114 &1999176294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1758,7 +1758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StarterDeckButton
   starterDeck: {fileID: 11400000, guid: 225e9d89af5319e4daf02e365be2455c, type: 2}
-  firstFightSceneName: Fight1
+  firstFightSceneName: IntroSequence
 --- !u!114 &2010166220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1906,7 +1906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StarterDeckButton
   starterDeck: {fileID: 11400000, guid: 7f82079d57b42a042928f9c9860aa584, type: 2}
-  firstFightSceneName: Fight1
+  firstFightSceneName: IntroSequence
 --- !u!114 &2047549822
 MonoBehaviour:
   m_ObjectHideFlags: 0
