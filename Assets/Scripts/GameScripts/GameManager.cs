@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     private int currentFightNumber = 0;
     private bool runActive = false;
 
+    [SerializeField] private List<string> fightSceneNames = new List<string>();
+
     public AudioManager audioManager { get; private set; }
     public DeckManager deckManager { get; private set; }
 
@@ -36,6 +38,21 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject); //if there is already an instance of the gamemanager, destroy this one to ensure there is only one instance
         }
+    }
+
+    public bool HasNextFight()
+    {
+        return currentFightNumber + 1 < fightSceneNames.Count;
+    }
+
+    public string GetNextFightSceneName()
+    {
+        if (!HasNextFight())
+        {
+            return "";
+        }
+
+        return fightSceneNames[currentFightNumber + 1];
     }
 
     private void InitializeManagers()
