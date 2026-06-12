@@ -2235,7 +2235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8baa7c56f6b0e9240ac5b32c683bf2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FighterStats
-  maxHealth: 25
+  maxHealth: 1
   healthText: {fileID: 1963699448}
   armorText: {fileID: 1610273115}
 --- !u!4 &1122314866
@@ -3455,11 +3455,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 9daecec347aa5b147be8bbd81b9807ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.14
+      value: 10.2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 9daecec347aa5b147be8bbd81b9807ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.74
+      value: -7.24
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 9daecec347aa5b147be8bbd81b9807ca, type: 3}
       propertyPath: m_LocalPosition.z
