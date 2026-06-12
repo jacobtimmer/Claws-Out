@@ -44,3 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 963d1c84adf2213489bdc04c7494add1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  backgroundSongs:
+  - {fileID: 8300000, guid: ed99b9a1361e1914c9149bc4ee4844bf, type: 3}
+  - {fileID: 8300000, guid: 5856cdc64dda5ed4b85ffa6630f07be2, type: 3}
+  - {fileID: 8300000, guid: 952a9133e4386b8459e71e5a99140e69, type: 3}
+  musicVolume: 0.5
+  shuffleSongs: 1
